@@ -12,6 +12,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.0.6"
+    "@tailwindcss/vite": "^4.3.2",
+    "astro": "^7.0.6",
+    "astro-loader-sveltia-cms": "^0.1.5",
+    "tailwindcss": "^4.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.0",
+    "typescript": "^6.0.3"
   }
 }
