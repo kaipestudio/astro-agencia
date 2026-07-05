@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
 import sveltia from 'astro-loader-sveltia-cms';
 
 export default defineConfig({
@@ -8,9 +7,9 @@ export default defineConfig({
       route: '/admin',
       config: {
         backend: {
-          name: 'github', // ← MUDOU DE 'git-gateway' PARA 'github'
-          repo: 'kaipestudio/astro-agencia', // ← SEU USUÁRIO/REPOSITÓRIO
-          branch: 'main', // ou 'master'
+          name: 'github',
+          repo: 'kaipestudio/astro-agencia',
+          branch: 'main',
         },
         media_folder: 'public/images/uploads',
         public_folder: '/images/uploads',
@@ -42,8 +41,5 @@ export default defineConfig({
       },
     }),
   ],
-  vite: {
-    plugins: [tailwindcss()],
-  },
   output: 'static',
 });

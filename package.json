@@ -16,7 +16,6 @@
     "astro-loader-sveltia-cms": "^0.1.5"
   },
   "devDependencies": {
-    "@astrojs/tailwind": "^5.1.0",
     "@types/node": "^26.1.0",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
