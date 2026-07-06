@@ -1,0 +1,65 @@
+---
+// src/components/Footer.astro
+---
+
+<footer class="bg-gray-900 text-white py-12 px-4">
+  <div class="container mx-auto">
+    <div class="grid md:grid-cols-4 gap-8">
+      <!-- Sobre -->
+      <div>
+        <h3 class="text-2xl font-bold mb-4">
+          Kaipê <span class="text-blue-400">Studio</span>
+        </h3>
+        <p class="text-gray-400">
+          Transformando ideias em experiências digitais únicas desde 2024.
+        </p>
+      </div>
+
+      <!-- Links Rápidos -->
+      <div>
+        <h4 class="font-semibold mb-4">Links Rápidos</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li><a href="/" class="hover:text-white transition">Início</a></li>
+          <li><a href="#servicos" class="hover:text-white transition">Serviços</a></li>
+          <li><a href="#portfolio" class="hover:text-white transition">Portfólio</a></li>
+          <li><a href="#contato" class="hover:text-white transition">Contato</a></li>
+        </ul>
+      </div>
+
+      <!-- Serviços -->
+      <div>
+        <h4 class="font-semibold mb-4">Serviços</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li>Desenvolvimento Web</li>
+          <li>UI/UX Design</li>
+          <li>Apps & SPAs</li>
+          <li>SEO & Performance</li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div>
+        <h4 class="font-semibold mb-4">Newsletter</h4>
+        <p class="text-gray-400 mb-4">Receba novidades e dicas exclusivas</p>
+        <form class="flex gap-2">
+          <input 
+            type="email" 
+            placeholder="Seu email" 
+            class="flex-1 px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:ring-2 focus:ring-blue-400 outline-none"
+          />
+          <button type="submit" class="bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+            →
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm text-gray-500">
+      <p>© 2024 Kaipê Studio. Todos os direitos reservados.</p>
+      <p class="mt-1">
+        Feito com ❤️ usando Astro, Tailwind e Sveltia CMS
+      </p>
+    </div>
+  </div>
+</footer>

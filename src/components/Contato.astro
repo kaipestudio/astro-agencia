@@ -1,0 +1,121 @@
+---
+// src/components/Contato.astro
+---
+
+<section id="contato" class="py-20 px-4 bg-white">
+  <div class="container mx-auto max-w-4xl">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="text-blue-600 font-semibold text-sm uppercase tracking-wider">Entre em Contato</span>
+      <h2 class="text-3xl md:text-4xl font-bold mt-2">Vamos trabalhar juntos?</h2>
+      <p class="text-gray-600 mt-4">
+        Fale conosco e descubra como podemos ajudar sua marca a crescer
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12">
+      <!-- Informações de contato -->
+      <div>
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="bg-blue-100 p-3 rounded-lg">
+              <span class="text-2xl">📧</span>
+            </div>
+            <div>
+              <h3 class="font-semibold">Email</h3>
+              <a href="mailto:contato@kaipe.studio" class="text-gray-600 hover:text-blue-600 transition">
+                contato@kaipe.studio
+              </a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="bg-blue-100 p-3 rounded-lg">
+              <span class="text-2xl">📱</span>
+            </div>
+            <div>
+              <h3 class="font-semibold">WhatsApp</h3>
+              <a href="https://wa.me/5511999999999" class="text-gray-600 hover:text-blue-600 transition" target="_blank">
+                (11) 99999-9999
+              </a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="bg-blue-100 p-3 rounded-lg">
+              <span class="text-2xl">📍</span>
+            </div>
+            <div>
+              <h3 class="font-semibold">Localização</h3>
+              <p class="text-gray-600">São Paulo, Brasil</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Redes Sociais -->
+        <div class="mt-8">
+          <h3 class="font-semibold mb-4">Redes Sociais</h3>
+          <div class="flex gap-4">
+            <a href="#" class="bg-gray-100 p-3 rounded-lg hover:bg-blue-100 transition" aria-label="Instagram">
+              📸
+            </a>
+            <a href="#" class="bg-gray-100 p-3 rounded-lg hover:bg-blue-100 transition" aria-label="LinkedIn">
+              💼
+            </a>
+            <a href="#" class="bg-gray-100 p-3 rounded-lg hover:bg-blue-100 transition" aria-label="YouTube">
+              ▶️
+            </a>
+            <a href="#" class="bg-gray-100 p-3 rounded-lg hover:bg-blue-100 transition" aria-label="GitHub">
+              🐙
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulário -->
+      <form class="space-y-4" netlify>
+        <div>
+          <label for="nome" class="block text-sm font-semibold mb-1">Nome</label>
+          <input 
+            type="text" 
+            id="nome" 
+            name="nome" 
+            required 
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition"
+            placeholder="Seu nome"
+          />
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-semibold mb-1">Email</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            required 
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition"
+            placeholder="seu@email.com"
+          />
+        </div>
+
+        <div>
+          <label for="mensagem" class="block text-sm font-semibold mb-1">Mensagem</label>
+          <textarea 
+            id="mensagem" 
+            name="mensagem" 
+            rows="4" 
+            required 
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition resize-none"
+            placeholder="Fale sobre seu projeto..."
+          ></textarea>
+        </div>
+
+        <button 
+          type="submit" 
+          class="w-full bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+        >
+          Enviar Mensagem 🚀
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
