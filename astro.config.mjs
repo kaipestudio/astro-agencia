@@ -1,10 +1,8 @@
 import { defineConfig } from 'astro/config';
 import sveltia from 'astro-loader-sveltia-cms';
-import tailwind from '@astrojs/tailwind'; // ← Adicione esta linha
 
 export default defineConfig({
   integrations: [
-    tailwind(), // ← Adicione esta linha (antes do sveltia)
     sveltia({
       route: '/admin',
       config: {
