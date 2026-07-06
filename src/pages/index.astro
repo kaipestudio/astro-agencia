@@ -1,22 +1,19 @@
 ---
 // src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Servicos from '../components/Servicos.astro';
 import Portfolio from '../components/Portfolio.astro';
 import Contato from '../components/Contato.astro';
-import Footer from '../components/Footer.astro';
+// Não precisa mais importar Header e Footer
 ---
 
 <Layout 
   title="Kaipê Studio - Agência Digital" 
   description="Agência especializada em desenvolvimento web, design e estratégias digitais"
 >
-  <Header />
   <Hero />
   <Servicos />
   <Portfolio />
   <Contato />
-  <Footer />
 </Layout>
