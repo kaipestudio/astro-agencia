@@ -1,4 +1,8 @@
 ---
+// src/layouts/Layout.astro
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
 export interface Props {
   title?: string;
   description?: string;
@@ -20,7 +24,16 @@ const { title = "Kaipê Studio - Agência Digital", description = "Agência de d
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   </head>
   <body class="font-sans antialiased">
-    <slot />
+    <!-- Header aparece em TODAS as páginas -->
+    <Header />
+    
+    <!-- Conteúdo específico de cada página -->
+    <main>
+      <slot />
+    </main>
+    
+    <!-- Footer aparece em TODAS as páginas -->
+    <Footer />
   </body>
 </html>
 
