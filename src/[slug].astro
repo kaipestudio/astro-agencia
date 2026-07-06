@@ -1,0 +1,36 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={`${post.data.title} - Blog Kaipê Studio`}>
+  <article class="py-20 px-4 bg-white">
+    <div class="container mx-auto max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">{post.data.title}</h1>
+      <p class="text-gray-500 mb-8">
+        {post.data.date?.toLocaleDateString('pt-BR', { 
+          day: 'numeric', 
+          month: 'long', 
+          year: 'numeric' 
+        })}
+      </p>
+      <div class="prose prose-lg prose-blue max-w-none">
+        <Content />
+      </div>
+      <div class="mt-12 pt-8 border-t">
+        <a href="/blog" class="text-blue-600 hover:text-blue-800 transition">← Voltar para o Blog</a>
+      </div>
+    </div>
+  </article>
+</Layout>
