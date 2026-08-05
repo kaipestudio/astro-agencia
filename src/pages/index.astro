@@ -1,19 +1,80 @@
 ---
-// src/pages/index.astro
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Servicos from '../components/Servicos.astro';
-import Portfolio from '../components/Portfolio.astro';
-import Contato from '../components/Contato.astro';
-// Não precisa mais importar Header e Footer
+// Configuração da página
+export const prerender = true;
 ---
 
-<Layout 
-  title="Kaipê Studio - Núcleo de Desenvolvimento de Jogos Digitais" 
-  description="Desenvolvemos jogos digitais, produções culturais e experiências interativas que conectam arte e tecnologia."
->
-  <Hero />
-  <Servicos />
-  <Portfolio />
-  <Contato />
-</Layout>
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site em Construção</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+      
+      .container {
+        text-align: center;
+        padding: 2rem;
+        color: white;
+      }
+      
+      .icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+      
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+      
+      p {
+        font-size: 1.25rem;
+        opacity: 0.9;
+        margin-bottom: 2rem;
+      }
+      
+      .construction-bar {
+        width: 200px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 2px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+      
+      .construction-bar::after {
+        content: '';
+        display: block;
+        width: 50%;
+        height: 100%;
+        background: white;
+        border-radius: 2px;
+        animation: loading 1.5s ease-in-out infinite;
+      }
+      
+      @keyframes loading {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(300%); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <span class="icon">🚧</span>
+      <h1>Em Construção</h1>
+      <p>Estamos trabalhando para trazer algo incrível em breve!</p>
+      <div class="construction-bar"></div>
+    </div>
+  </body>
+</html>
