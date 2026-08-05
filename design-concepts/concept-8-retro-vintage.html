@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conceito 8: Retro Vintage Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --cream: #FDF6E3;
+      --warm-white: #FAF3E0;
+      --terracotta: #C75B39;
+      --terracotta-light: #E07B5B;
+      --olive: #5C6B4F;
+      --olive-light: #7A8B6A;
+      --mustard: #D4A843;
+      --brown: #4A3728;
+      --dark-brown: #2C1F15;
+      --off-white: #F5EDE0;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--dark-brown);
+      overflow-x: hidden;
+    }
+    
+    /* CONCEPT BADGE */
+    .concept-badge {
+      position: fixed;
+      top: 1.5rem;
+      right: 3rem;
+      background: var(--terracotta);
+      color: var(--cream);
+      padding: 0.75rem 1.5rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      z-index: 200;
+    }
+    
+    /* NAV - RETRO */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.5rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--cream);
+      border-bottom: 2px solid var(--dark-brown);
+    }
+    
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+    
+    .logo span {
+      color: var(--terracotta);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      color: var(--dark-brown);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+      color: var(--terracotta);
+    }
+    
+    .nav-cta {
+      background: var(--dark-brown);
+      color: var(--cream);
+      padding: 0.875rem 1.75rem;
+      border: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .nav-cta:hover {
+      background: var(--terracotta);
+    }
+    
+    /* HERO - RETRO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 8rem 4rem 4rem;
+      gap: 4rem;
+      align-items: center;
+      border-bottom: 2px solid var(--dark-brown);
+    }
+    
+    .hero-content {
+      max-width: 550px;
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: var(--terracotta);
+      color: var(--cream);
+      padding: 0.5rem 1rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 2rem;
+    }
+    
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero h1 span {
+      color: var(--terracotta);
+      display: block;
+    }
+    
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--brown);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      opacity: 0.8;
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .btn-primary {
+      background: var(--terracotta);
+      color: var(--cream);
+      padding: 1.125rem 2.25rem;
+      border: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: all 0.3s;
+    }
+    
+    .btn-primary:hover {
+      background: var(--dark-brown);
+      transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: var(--dark-brown);
+      padding: 1.125rem 2.25rem;
+      border: 2px solid var(--dark-brown);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: all 0.3s;
+    }
+    
+    .btn-secondary:hover {
+      background: var(--dark-brown);
+      color: var(--cream);
+    }
+    
+    /* HERO VISUAL */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .hero-image {
+      width: 100%;
+      max-width: 500px;
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, var(--terracotta-light), var(--terracotta));
+      border: 4px solid var(--dark-brown);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8rem;
+      position: relative;
+    }
+    
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      border: 2px solid var(--cream);
+    }
+    
+    .hero-floating {
+      position: absolute;
+      background: var(--cream);
+      border: 3px solid var(--dark-brown);
+      padding: 1rem 1.5rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      animation: float 4s ease-in-out infinite;
+    }
+    
+    .hero-floating-1 {
+      top: 10%;
+      right: -10%;
+      animation-delay: 0s;
+    }
+    
+    .hero-floating-2 {
+      bottom: 20%;
+      left: -5%;
+      animation-delay: -2s;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-10px) rotate(2deg); }
+    }
+    
+    /* STATS */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: 2px solid var(--dark-brown);
+    }
+    
+    .stat {
+      padding: 3rem 2rem;
+      text-align: center;
+      border-right: 2px solid var(--dark-brown);
+    }
+    
+    .stat:last-child {
+      border-right: none;
+    }
+    
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--terracotta);
+    }
+    
+    .stat-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--brown);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-top: 0.5rem;
+    }
+    
+    /* SERVICES - RETRO */
+    .services {
+      padding: 8rem 4rem;
+      background: var(--off-white);
+      border-bottom: 2px solid var(--dark-brown);
+    }
+    
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+    }
+    
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+    }
+    
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+    }
+    
+    .section-link {
+      color: var(--dark-brown);
+      text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-bottom: 2px solid var(--dark-brown);
+      padding-bottom: 0.25rem;
+      transition: all 0.3s;
+    }
+    
+    .section-link:hover {
+      color: var(--terracotta);
+      border-color: var(--terracotta);
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    
+    .service-card {
+      background: var(--cream);
+      border: 3px solid var(--dark-brown);
+      padding: 3rem 2rem;
+      position: relative;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      right: -8px;
+      bottom: -8px;
+      background: var(--dark-brown);
+      z-index: -1;
+      transition: all 0.3s;
+    }
+    
+    .service-card:hover {
+      transform: translate(4px, 4px);
+    }
+    
+    .service-card:hover::before {
+      transform: translate(-4px, -4px);
+    }
+    
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .service-number {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--terracotta);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    
+    .service-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--brown);
+      line-height: 1.7;
+      opacity: 0.8;
+    }
+    
+    /* PORTFOLIO - RETRO */
+    .portfolio {
+      padding: 8rem 4rem;
+      border-bottom: 2px solid var(--dark-brown);
+    }
+    
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+    
+    .portfolio-item {
+      border: 3px solid var(--dark-brown);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .portfolio-item:nth-child(1) {
+      grid-column: span 2;
+    }
+    
+    .portfolio-thumb {
+      width: 100%;
+      aspect-ratio: 16/10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      transition: transform 0.5s;
+    }
+    
+    .portfolio-item:nth-child(1) .portfolio-thumb {
+      aspect-ratio: 2/1;
+      font-size: 8rem;
+    }
+    
+    .portfolio-item:nth-child(1) .portfolio-thumb {
+      background: var(--terracotta);
+    }
+    
+    .portfolio-item:nth-child(2) .portfolio-thumb {
+      background: var(--olive);
+    }
+    
+    .portfolio-item:nth-child(3) .portfolio-thumb {
+      background: var(--mustard);
+    }
+    
+    .portfolio-item:hover .portfolio-thumb {
+      transform: scale(1.05);
+    }
+    
+    .portfolio-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem;
+      background: var(--cream);
+      border-top: 3px solid var(--dark-brown);
+      transform: translateY(100%);
+      transition: transform 0.4s;
+    }
+    
+    .portfolio-item:hover .portfolio-info {
+      transform: translateY(0);
+    }
+    
+    .portfolio-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    
+    .portfolio-info p {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--terracotta);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.25rem;
+    }
+    
+    /* TESTIMONIAL */
+    .testimonial {
+      padding: 8rem 4rem;
+      background: var(--dark-brown);
+      color: var(--cream);
+      text-align: center;
+    }
+    
+    .testimonial-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .testimonial-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      line-height: 1.5;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    
+    .testimonial-role {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--terracotta-light);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    /* CTA */
+    .cta {
+      padding: 8rem 4rem;
+      text-align: center;
+      border-bottom: 2px solid var(--dark-brown);
+    }
+    
+    .cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta h2 span {
+      color: var(--terracotta);
+    }
+    
+    .cta p {
+      font-size: 1.1rem;
+      color: var(--brown);
+      margin-bottom: 3rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.8;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    
+    /* FOOTER */
+    footer {
+      padding: 4rem;
+      background: var(--dark-brown);
+      color: var(--cream);
+    }
+    
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 3rem;
+    }
+    
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 900;
+    }
+    
+    .footer-brand span {
+      color: var(--terracotta-light);
+    }
+    
+    .footer-tagline {
+      color: var(--terracotta-light);
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      max-width: 280px;
+      line-height: 1.6;
+      opacity: 0.8;
+    }
+    
+    .footer-links h4 {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--terracotta-light);
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-links a {
+      color: rgba(253,246,227,0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--cream);
+    }
+    
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(253,246,227,0.2);
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--terracotta-light);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+<body>
+  <div class="concept-badge">🎨 Conceito 8: Retro Vintage Agency</div>
+  
+  <nav>
+    <div class="logo">Retro<span>Studio</span></div>
+    <ul class="nav-links">
+      <li><a href="#">Início</a></li>
+      <li><a href="#">Serviços</a></li>
+      <li><a href="#">Portfólio</a></li>
+      <li><a href="#">Sobre</a></li>
+    </ul>
+    <a href="#" class="nav-cta">Contato</a>
+  </nav>
+  
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">✦ Agência de Criatividade</div>
+      <h1>Design com <span>caráter</span> e história</h1>
+      <p>Criamos marcas que contam histórias. Design inspirado no passado, preparado para o futuro.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn-primary">Ver Projetos</a>
+        <a href="#" class="btn-secondary">Saiba Mais</a>
+      </div>
+    </div>
+    
+    <div class="hero-visual">
+      <div class="hero-image">🎨</div>
+      <div class="hero-floating hero-floating-1">Est. 2024</div>
+      <div class="hero-floating hero-floating-2"> handmade</div>
+    </div>
+  </section>
+  
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-number">150+</div>
+      <div class="stat-label">Projetos</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">95%</div>
+      <div class="stat-label">Satisfação</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">12</div>
+      <div class="stat-label">Prêmios</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">8+</div>
+      <div class="stat-label">Anos</div>
+    </div>
+  </div>
+  
+  <section class="services">
+    <div class="section-header">
+      <div>
+        <div class="section-label">Serviços</div>
+        <h2 class="section-title">O que fazemos</h2>
+      </div>
+      <a href="#" class="section-link">Ver todos →</a>
+    </div>
+    
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <div class="service-number">Serviço 01</div>
+        <h3 class="service-title">Branding</h3>
+        <p class="service-desc">Identidades visuais com alma e personalidade que resistem ao tempo.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">💻</div>
+        <div class="service-number">Serviço 02</div>
+        <h3 class="service-title">Web Design</h3>
+        <p class="service-desc">Sites que combinam estética clássica com funcionalidade moderna.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">📦</div>
+        <div class="service-number">Serviço 03</div>
+        <h3 class="service-title">Packaging</h3>
+        <p class="service-desc">Embalagens que contam a história do produto.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">📰</div>
+        <div class="service-number">Serviço 04</div>
+        <h3 class="service-title">Editorial</h3>
+        <p class="service-desc">Publicações com tipografia e composição refinadas.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">🎬</div>
+        <div class="service-number">Serviço 05</div>
+        <h3 class="service-title">Motion</h3>
+        <p class="service-desc">Animações com estética retrô e charme vintage.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <div class="service-number">Serviço 06</div>
+        <h3 class="service-title">Consultoria</h3>
+        <p class="service-desc">Estratégia de marca com foco em autenticidade.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="portfolio">
+    <div class="section-header">
+      <div>
+        <div class="section-label">Portfólio</div>
+        <h2 class="section-title">Trabalhos selecionados</h2>
+      </div>
+      <a href="#" class="section-link">Ver todos →</a>
+    </div>
+    
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <div class="portfolio-thumb">☕</div>
+        <div class="portfolio-info">
+          <h3>Café do Centro</h3>
+          <p>Branding & Packaging</p>
+        </div>
+      </div>
+      
+      <div class="portfolio-item">
+        <div class="portfolio-thumb">🎵</div>
+        <div class="portfolio-info">
+          <h3>Festival de Jazz</h3>
+          <p>Identidade Visual</p>
+        </div>
+      </div>
+      
+      <div class="portfolio-item">
+        <div class="portfolio-thumb">📚</div>
+        <div class="portfolio-info">
+          <h3>Livraria Antiga</h3>
+          <p>Web Design</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="testimonial">
+    <div class="testimonial-container">
+      <p class="testimonial-quote">"Eles entenderam perfeitamente o que queríamos: algo que parecesse ter sempre existido, mas ao mesmo tempo fresco e novo."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-name">Roberto Almeida</div>
+        <div class="testimonial-role">Diretor, Café do Centro</div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="cta">
+    <h2>Vamos criar algo com <span>história</span>?</h2>
+    <p>Sua marca merece uma identidade que conte uma história e perdure no tempo.</p>
+    <div class="cta-buttons">
+      <a href="#" class="btn-primary">Iniciar Projeto</a>
+      <a href="#" class="btn-secondary">Falar Conosco</a>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Retro<span>Studio</span></div>
+        <p class="footer-tagline">Agência de criatividade com alma vintage e olhar futuro.</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#">Início</a></li>
+          <li><a href="#">Serviços</a></li>
+          <li><a href="#">Portfólio</a></li>
+          <li><a href="#">Sobre</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Serviços</h4>
+        <ul>
+          <li><a href="#">Branding</a></li>
+          <li><a href="#">Web Design</a></li>
+          <li><a href="#">Packaging</a></li>
+          <li><a href="#">Editorial</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="#">contato@retrostudio.com</a></li>
+          <li><a href="#">(11) 99999-9999</a></li>
+          <li><a href="#">São Paulo, Brasil</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div>© 2024 RetroStudio. Todos os direitos reservados.</div>
+      <div>Instagram · Behance · LinkedIn</div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -2,69 +2,87 @@
 // src/components/Servicos.astro
 ---
 
-<section id="servicos" class="py-20 px-4 bg-white">
+<section id="servicos" class="relative py-24 px-6 overflow-hidden" style="background: #FAF3E0; border-bottom: 2px solid #2C1F15;">
   <div class="container mx-auto">
-    <div class="text-center max-w-2xl mx-auto mb-16">
-      <span class="text-blue-600 font-semibold text-sm uppercase tracking-wider">Nossos Serviços</span>
-      <h2 class="text-3xl md:text-4xl font-bold mt-2">O que oferecemos</h2>
-      <p class="text-gray-600 mt-4">
-        Soluções completas para levar sua marca ao próximo nível digital
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Serviço 1 -->
-      <div class="group bg-gray-50 p-8 rounded-2xl hover:bg-blue-50 transition hover:shadow-lg">
-        <div class="text-5xl mb-4">💻</div>
-        <h3 class="text-xl font-bold mb-2">Desenvolvimento Web</h3>
-        <p class="text-gray-600 group-hover:text-gray-800 transition">
-          Sites e aplicações web modernas, rápidas e responsivas com as melhores tecnologias.
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mx-auto items-start">
+      <!-- Left: Sticky Header -->
+      <div class="lg:sticky lg:top-32">
+        <span class="text-xs font-mono font-semibold uppercase tracking-widest" style="color: #C75B39;">Serviços</span>
+        <h2 class="text-4xl md:text-5xl font-display font-black mt-3 leading-tight tracking-tight" style="color: #2C1F15;">
+          O que fazemos
+        </h2>
+        <p class="text-lg mt-6 leading-relaxed" style="color: #4A3728; opacity: 0.8;">
+          Do branding ao web design, oferecemos soluções criativas para marcas que valorizam caráter e história.
         </p>
       </div>
 
-      <!-- Serviço 2 -->
-      <div class="group bg-gray-50 p-8 rounded-2xl hover:bg-blue-50 transition hover:shadow-lg">
-        <div class="text-5xl mb-4">🎨</div>
-        <h3 class="text-xl font-bold mb-2">UI/UX Design</h3>
-        <p class="text-gray-600 group-hover:text-gray-800 transition">
-          Design centrado no usuário para criar experiências intuitivas e memoráveis.
-        </p>
-      </div>
+      <!-- Right: Service Cards -->
+      <div class="flex flex-col gap-4">
+        <!-- Serviço 1 -->
+        <a href="/servicos/jogos-digitais" class="service-item p-8 flex gap-5 items-start block" style="background: #FDF6E3;">
+          <div class="w-14 h-14 rounded-none flex items-center justify-center flex-shrink-0 text-2xl" style="background: rgba(199,91,57,0.15);">🎮</div>
+          <div>
+            <h3 class="text-xl font-bold mb-2" style="color: #2C1F15;">Desenvolvimento de Jogos</h3>
+            <p class="text-sm leading-relaxed" style="color: #4A3728; opacity: 0.8;">
+              Games para web, mobile e desktop. Visual Novels, jogos educativos e plataformas.
+            </p>
+          </div>
+        </a>
 
-      <!-- Serviço 3 -->
-      <div class="group bg-gray-50 p-8 rounded-2xl hover:bg-blue-50 transition hover:shadow-lg">
-        <div class="text-5xl mb-4">📱</div>
-        <h3 class="text-xl font-bold mb-2">Apps & SPAs</h3>
-        <p class="text-gray-600 group-hover:text-gray-800 transition">
-          Aplicações Single Page Application com performance excepcional.
-        </p>
-      </div>
+        <!-- Serviço 2 -->
+        <a href="/servicos/producao-cultural" class="service-item p-8 flex gap-5 items-start block" style="background: #FDF6E3;">
+          <div class="w-14 h-14 rounded-none flex items-center justify-center flex-shrink-0 text-2xl" style="background: rgba(92,107,79,0.15);">🎭</div>
+          <div>
+            <h3 class="text-xl font-bold mb-2" style="color: #2C1F15;">Produção Cultural</h3>
+            <p class="text-sm leading-relaxed" style="color: #4A3728; opacity: 0.8;">
+              Teatro, literatura, quadrinhos e eventos culturais integrando tecnologia e arte.
+            </p>
+          </div>
+        </a>
 
-      <!-- Serviço 4 -->
-      <div class="group bg-gray-50 p-8 rounded-2xl hover:bg-blue-50 transition hover:shadow-lg">
-        <div class="text-5xl mb-4">🚀</div>
-        <h3 class="text-xl font-bold mb-2">SEO & Performance</h3>
-        <p class="text-gray-600 group-hover:text-gray-800 transition">
-          Otimização para mecanismos de busca e performance para seu site voar.
-        </p>
-      </div>
+        <!-- Serviço 3 -->
+        <a href="/servicos/aplicativos" class="service-item p-8 flex gap-5 items-start block" style="background: #FDF6E3;">
+          <div class="w-14 h-14 rounded-none flex items-center justify-center flex-shrink-0 text-2xl" style="background: rgba(212,168,67,0.15);">📱</div>
+          <div>
+            <h3 class="text-xl font-bold mb-2" style="color: #2C1F15;">Aplicativos Interativos</h3>
+            <p class="text-sm leading-relaxed" style="color: #4A3728; opacity: 0.8;">
+              Apps para web, mobile e desktop com foco em educação e cultura.
+            </p>
+          </div>
+        </a>
 
-      <!-- Serviço 5 -->
-      <div class="group bg-gray-50 p-8 rounded-2xl hover:bg-blue-50 transition hover:shadow-lg">
-        <div class="text-5xl mb-4">📊</div>
-        <h3 class="text-xl font-bold mb-2">Marketing Digital</h3>
-        <p class="text-gray-600 group-hover:text-gray-800 transition">
-          Estratégias para atrair, converter e fidelizar clientes online.
-        </p>
-      </div>
+        <!-- Serviço 4 -->
+        <a href="/servicos/jogos-educacionais" class="service-item p-8 flex gap-5 items-start block" style="background: #FDF6E3;">
+          <div class="w-14 h-14 rounded-none flex items-center justify-center flex-shrink-0 text-2xl" style="background: rgba(199,91,57,0.15);">📚</div>
+          <div>
+            <h3 class="text-xl font-bold mb-2" style="color: #2C1F15;">Jogos Educacionais</h3>
+            <p class="text-sm leading-relaxed" style="color: #4A3728; opacity: 0.8;">
+              Gamificação e jogos de tabuleiro para educação e aprendizado.
+            </p>
+          </div>
+        </a>
 
-      <!-- Serviço 6 -->
-      <div class="group bg-gray-50 p-8 rounded-2xl hover:bg-blue-50 transition hover:shadow-lg">
-        <div class="text-5xl mb-4">🔧</div>
-        <h3 class="text-xl font-bold mb-2">Manutenção</h3>
-        <p class="text-gray-600 group-hover:text-gray-800 transition">
-          Suporte contínuo, atualizações e melhorias para seu projeto.
-        </p>
+        <!-- Serviço 5 -->
+        <a href="/servicos/arte-digital" class="service-item p-8 flex gap-5 items-start block" style="background: #FDF6E3;">
+          <div class="w-14 h-14 rounded-none flex items-center justify-center flex-shrink-0 text-2xl" style="background: rgba(92,107,79,0.15);">🎨</div>
+          <div>
+            <h3 class="text-xl font-bold mb-2" style="color: #2C1F15;">Arte Digital & Ilustração</h3>
+            <p class="text-sm leading-relaxed" style="color: #4A3728; opacity: 0.8;">
+              Quadrinhos, webtirinhas, ilustrações e arte digital interativa.
+            </p>
+          </div>
+        </a>
+
+        <!-- Serviço 6 -->
+        <a href="/servicos/oficinas" class="service-item p-8 flex gap-5 items-start block" style="background: #FDF6E3;">
+          <div class="w-14 h-14 rounded-none flex items-center justify-center flex-shrink-0 text-2xl" style="background: rgba(212,168,67,0.15);">🎓</div>
+          <div>
+            <h3 class="text-xl font-bold mb-2" style="color: #2C1F15;">Oficinas & Workshops</h3>
+            <p class="text-sm leading-relaxed" style="color: #4A3728; opacity: 0.8;">
+              Capacitação em cultura digital, jogos e produção artística.
+            </p>
+          </div>
+        </a>
       </div>
     </div>
   </div>

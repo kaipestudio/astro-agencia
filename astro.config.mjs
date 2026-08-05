@@ -1,8 +1,11 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 import sveltia from 'astro-loader-sveltia-cms';
 
 export default defineConfig({
+  site: 'https://kaipestudio.com',
   integrations: [
+    sitemap(),
     sveltia({
       route: '/admin',
       config: {

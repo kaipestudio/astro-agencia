@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conceito 5: Dark Luxury Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --black: #000000;
+      --dark: #0A0A0A;
+      --dark-2: #111111;
+      --dark-3: #1A1A1A;
+      --white: #FFFFFF;
+      --gray-100: #F5F5F5;
+      --gray-300: #D4D4D4;
+      --gray-500: #737373;
+      --gray-700: #404040;
+      --gold: #C9A84C;
+      --gold-light: #E8D48B;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+    
+    /* CONCEPT BADGE */
+    .concept-badge {
+      position: fixed;
+      top: 1.5rem;
+      right: 3rem;
+      background: var(--gold);
+      color: var(--black);
+      padding: 0.75rem 1.5rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      z-index: 200;
+    }
+    
+    /* NAV - LUXURY */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.5rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    
+    .logo span {
+      color: var(--gold);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      color: var(--gray-500);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: color 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+    
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+    
+    .nav-cta {
+      background: transparent;
+      color: var(--gold);
+      padding: 0.875rem 1.75rem;
+      border: 1px solid var(--gold);
+      border-radius: 0;
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      transition: all 0.3s;
+    }
+    
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+    
+    /* HERO - LUXURY */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 8rem 4rem 4rem;
+      position: relative;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    
+    .hero-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+    
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(4rem, 10vw, 8rem);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-bottom: 2rem;
+      max-width: 1000px;
+    }
+    
+    .hero h1 span {
+      color: var(--gold);
+    }
+    
+    .hero-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 2rem auto;
+    }
+    
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--gray-500);
+      line-height: 1.8;
+      margin-bottom: 3rem;
+      max-width: 500px;
+      font-weight: 300;
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    .btn-gold {
+      background: var(--gold);
+      color: var(--black);
+      padding: 1.25rem 2.5rem;
+      border: none;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      transition: all 0.3s;
+    }
+    
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline-gold {
+      background: transparent;
+      color: var(--gold);
+      padding: 1.25rem 2.5rem;
+      border: 1px solid var(--gold);
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      transition: all 0.3s;
+    }
+    
+    .btn-outline-gold:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+    
+    /* STATS */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 6rem;
+      padding: 6rem 4rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .stat {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--gray-500);
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+    
+    /* SERVICES - LUXURY */
+    .services {
+      padding: 8rem 4rem;
+      background: var(--dark);
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+    
+    .section-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.1);
+    }
+    
+    .service-card {
+      background: var(--dark);
+      padding: 4rem 3rem;
+      transition: all 0.5s;
+      cursor: pointer;
+      position: relative;
+    }
+    
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.5s;
+    }
+    
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .service-card:hover {
+      background: var(--dark-2);
+    }
+    
+    .service-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.05);
+      margin-bottom: 2rem;
+      line-height: 1;
+    }
+    
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .service-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--gray-500);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+    
+    /* PORTFOLIO - LUXURY */
+    .portfolio {
+      padding: 8rem 4rem;
+      background: var(--black);
+    }
+    
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+    
+    .portfolio-item {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    
+    .portfolio-item:first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    
+    .portfolio-thumb {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .portfolio-item:first-child .portfolio-thumb {
+      font-size: 6rem;
+    }
+    
+    .portfolio-item:nth-child(1) .portfolio-thumb {
+      background: linear-gradient(135deg, var(--dark-2), var(--dark-3));
+    }
+    
+    .portfolio-item:nth-child(2) .portfolio-thumb {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+    }
+    
+    .portfolio-item:nth-child(3) .portfolio-thumb {
+      background: linear-gradient(135deg, #2d1b2e, #1a1a2e);
+    }
+    
+    .portfolio-item:nth-child(4) .portfolio-thumb {
+      background: linear-gradient(135deg, #1b2d1a, #1a2e1b);
+    }
+    
+    .portfolio-item:nth-child(5) .portfolio-thumb {
+      background: linear-gradient(135deg, #2e2d1a, #1a1b2e);
+    }
+    
+    .portfolio-item:hover .portfolio-thumb {
+      transform: scale(1.1);
+    }
+    
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+    
+    .portfolio-overlay h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    .portfolio-overlay p {
+      font-size: 0.8rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+    
+    /* PROCESS */
+    .process {
+      padding: 8rem 4rem;
+      background: var(--dark);
+    }
+    
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+    
+    .process-step {
+      text-align: center;
+      position: relative;
+    }
+    
+    .process-step::after {
+      content: '→';
+      position: absolute;
+      right: -1.5rem;
+      top: 2rem;
+      font-size: 1.5rem;
+      color: var(--gold);
+    }
+    
+    .process-step:last-child::after {
+      display: none;
+    }
+    
+    .process-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 5rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+    
+    .process-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .process-desc {
+      font-size: 0.9rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+    
+    /* CTA */
+    .cta {
+      padding: 10rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1000px;
+      height: 1000px;
+      background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    
+    .cta h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    
+    .cta h2 span {
+      color: var(--gold);
+    }
+    
+    .cta p {
+      font-size: 1.1rem;
+      color: var(--gray-500);
+      margin-bottom: 3rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 300;
+      position: relative;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      position: relative;
+    }
+    
+    /* FOOTER */
+    footer {
+      padding: 4rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      background: var(--dark);
+    }
+    
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+    }
+    
+    .footer-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    
+    .footer-brand span {
+      color: var(--gold);
+    }
+    
+    .footer-tagline {
+      color: var(--gray-500);
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      max-width: 300px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+    
+    .footer-links h4 {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-links a {
+      color: var(--gray-500);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.3s;
+      font-weight: 300;
+    }
+    
+    .footer-links a:hover {
+      color: var(--white);
+    }
+    
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .footer-copyright {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    .footer-social a {
+      color: var(--gray-500);
+      text-decoration: none;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+    }
+    
+    .footer-social a:hover {
+      color: var(--gold);
+    }
+  </style>
+</head>
+<body>
+  <div class="concept-badge">✨ Conceito 5: Dark Luxury Agency</div>
+  
+  <nav>
+    <div class="logo">Atelier<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#">Início</a></li>
+      <li><a href="#">Serviços</a></li>
+      <li><a href="#">Portfólio</a></li>
+      <li><a href="#">Processo</a></li>
+    </ul>
+    <a href="#" class="nav-cta">Fale Conosco</a>
+  </nav>
+  
+  <section class="hero">
+    <div class="hero-label">Estúdio de Design Premium</div>
+    <h1>Criamos experiências <span>sofisticadas</span></h1>
+    <div class="hero-divider"></div>
+    <p>Design de alto nível para marcas que valorizam excelência. Cada detalhe é pensado para impactar.</p>
+    <div class="hero-cta">
+      <a href="#" class="btn-gold">Agendar Consulta</a>
+      <a href="#" class="btn-outline-gold">Ver Projetos</a>
+    </div>
+  </section>
+  
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-number">200+</div>
+      <div class="stat-label">Projetos Entregues</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">50+</div>
+      <div class="stat-label">Clientes VIP</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">25</div>
+      <div class="stat-label">Prêmios Internacionais</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">12</div>
+      <div class="stat-label">Anos de Excelência</div>
+    </div>
+  </div>
+  
+  <section class="services">
+    <div class="section-header">
+      <div class="section-label">Serviços</div>
+      <h2 class="section-title">Soluções de design <br>de alto impacto</h2>
+    </div>
+    
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-number">01</div>
+        <div class="service-icon">💎</div>
+        <h3 class="service-title">Branding Premium</h3>
+        <p class="service-desc">Identidades visuais exclusivas que posicionam sua marca no topo do mercado.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <div class="service-icon">🖥️</div>
+        <h3 class="service-title">Web Design Luxury</h3>
+        <p class="service-desc">Sites sofisticados que transmitem exclusividade e convertem visitantes em clientes premium.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-number">03</div>
+        <div class="service-icon">📱</div>
+        <h3 class="service-title">App Design</h3>
+        <p class="service-desc">Aplicativos com interfaces elegantes e experiências intuitivas.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-number">04</div>
+        <div class="service-icon">🎬</div>
+        <h3 class="service-title">Motion & Video</h3>
+        <p class="service-desc">Animações e vídeos de alto production value.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-number">05</div>
+        <div class="service-icon">📦</div>
+        <h3 class="service-title">Packaging</h3>
+        <p class="service-desc">Embalagens que transformam produtos em experiências sensoriais.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-number">06</div>
+        <div class="service-icon">📊</div>
+        <h3 class="service-title">Consultoria</h3>
+        <p class="service-desc">Estratégia visual para marcas que buscam posicionamento de luxo.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="portfolio">
+    <div class="section-header">
+      <div class="section-label">Portfólio</div>
+      <h2 class="section-title">Projetos Selecionados</h2>
+    </div>
+    
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <div class="portfolio-thumb">🏛️</div>
+        <div class="portfolio-overlay">
+          <h3>Hotel Boutique</h3>
+          <p>Branding & Web Design</p>
+        </div>
+      </div>
+      
+      <div class="portfolio-item">
+        <div class="portfolio-thumb">🍷</div>
+        <div class="portfolio-overlay">
+          <h3>Vinícola Premium</h3>
+          <p>Packaging & Branding</p>
+        </div>
+      </div>
+      
+      <div class="portfolio-item">
+        <div class="portfolio-thumb">👔</div>
+        <div class="portfolio-overlay">
+          <h3>Fashion Label</h3>
+          <p>Identidade Visual</p>
+        </div>
+      </div>
+      
+      <div class="portfolio-item">
+        <div class="portfolio-thumb">🚗</div>
+        <div class="portfolio-overlay">
+          <h3>Concessionária</h3>
+          <p>Web Design & App</p>
+        </div>
+      </div>
+      
+      <div class="portfolio-item">
+        <div class="portfolio-thumb">💎</div>
+        <div class="portfolio-overlay">
+          <h3>Joaalaria</h3>
+          <p>Branding Completo</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="process">
+    <div class="section-header">
+      <div class="section-label">Processo</div>
+      <h2 class="section-title">Como trabalhamos</h2>
+    </div>
+    
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-number">01</div>
+        <h3 class="process-title">Descoberta</h3>
+        <p class="process-desc">Entendemos sua marca, público e objetivos em profundidade.</p>
+      </div>
+      
+      <div class="process-step">
+        <div class="process-number">02</div>
+        <h3 class="process-title">Conceito</h3>
+        <p class="process-desc">Desenvolvemos a estratégia visual e criativa.</p>
+      </div>
+      
+      <div class="process-step">
+        <div class="process-number">03</div>
+        <h3 class="process-title">Design</h3>
+        <p class="process-desc">Criamos cada peça com atenção aos detalhes.</p>
+      </div>
+      
+      <div class="process-step">
+        <div class="process-number">04</div>
+        <h3 class="process-title">Entrega</h3>
+        <p class="process-desc">Implementamos e acompanhamos os resultados.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="cta">
+    <h2>Pronto para elevar sua <span>marca</span>?</h2>
+    <p>Comece uma conversa sobre seu próximo projeto de design premium.</p>
+    <div class="cta-buttons">
+      <a href="#" class="btn-gold">Iniciar Projeto</a>
+      <a href="#" class="btn-outline-gold">Agendar Reunião</a>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Atelier<span>.</span></div>
+        <p class="footer-tagline">Estúdio de design premium para marcas que buscam excelência e sofisticação.</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#">Início</a></li>
+          <li><a href="#">Serviços</a></li>
+          <li><a href="#">Portfólio</a></li>
+          <li><a href="#">Sobre</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Serviços</h4>
+        <ul>
+          <li><a href="#">Branding</a></li>
+          <li><a href="#">Web Design</a></li>
+          <li><a href="#">App Design</a></li>
+          <li><a href="#">Motion</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="#">atelier@studio.com</a></li>
+          <li><a href="#">(11) 99999-9999</a></li>
+          <li><a href="#">São Paulo, Brasil</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-copyright">© 2024 Atelier. Todos os direitos reservados.</div>
+      <div class="footer-social">
+        <a href="#">Instagram</a>
+        <a href="#">Behance</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -6,9 +6,17 @@ import Footer from '../components/Footer.astro';
 export interface Props {
   title?: string;
   description?: string;
+  image?: string;
 }
 
-const { title = "Kaipê Studio - Agência Digital", description = "Agência de desenvolvimento web e design" } = Astro.props;
+const { 
+  title = "Kaipê Studio - Núcleo de Desenvolvimento de Jogos Digitais", 
+  description = "Desenvolvemos jogos digitais, produções culturais e experiências interativas que conectam arte e tecnologia.",
+  image = '/og-default.png'
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const imageURL = new URL(image, Astro.site);
 ---
 
 <!DOCTYPE html>
@@ -18,12 +26,31 @@ const { title = "Kaipê Studio - Agência Digital", description = "Agência de d
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:locale" content="pt_BR" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={imageURL} />
+    
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalURL} />
+    
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   </head>
-  <body class="font-sans antialiased">
+  <body class="font-sans antialiased bg-[#FDF6E3] text-[#2C1F15]">
     <!-- Header aparece em TODAS as páginas -->
     <Header />
     

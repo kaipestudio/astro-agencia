@@ -2,49 +2,366 @@
 // src/components/Header.astro
 ---
 
-<header class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
-  <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
-    <a href="/" class="text-2xl font-bold">
-      Kaipê <span class="text-blue-600">Studio</span>
+<header class="fixed top-0 left-0 right-0 z-50" style="background: rgba(253,246,227,0.95); border-bottom: 2px solid #2C1F15;">
+  <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="text-2xl font-display font-black tracking-tight" style="color: #2C1F15;">
+      Kaipê<span style="color: #C75B39;">Studio</span>
     </a>
 
-    <div class="hidden md:flex items-center space-x-6">
-      <a href="/" class="text-gray-700 hover:text-blue-600 transition">Início</a>
-      <a href="/sobre" class="text-gray-700 hover:text-blue-600 transition">Equipe</a>
-      <a href="/portfolio" class="text-gray-700 hover:text-blue-600 transition">Portfólio</a>
-      <a href="/blog" class="text-gray-700 hover:text-blue-600 transition">Blog</a>
-      <a href="/rede-colaborativa" class="text-gray-700 hover:text-blue-600 transition">Rede Colaborativa</a>
-      <a href="/mostra" class="text-gray-700 hover:text-blue-600 transition">Mostra</a>
-      <a href="/contato" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-6">
+      <a href="/" class="nav-link-desktop">Início</a>
+      <a href="/sobre" class="nav-link-desktop">Sobre</a>
+      <a href="/portfolio" class="nav-link-desktop">Portfólio</a>
+      <a href="/editora" class="nav-link-desktop">Editora</a>
+      <a href="/mostra" class="nav-link-desktop">Mostra</a>
+      <a href="/rede-colaborativa" class="nav-link-desktop">Game Hub</a>
+      <a href="/blog" class="nav-link-desktop">Blog</a>
+      <a href="/contato" class="btn-glow text-sm px-4 py-2">
         Contato
       </a>
     </div>
 
-    <button id="menuButton" class="md:hidden text-gray-700 hover:text-blue-600 transition">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
+    <!-- Mobile Hamburger Button -->
+    <button id="menuButton" class="md:hidden relative z-[60] w-10 h-10 flex items-center justify-center" aria-label="Abrir menu">
+      <div id="hamburgerIcon" class="w-6 flex flex-col gap-1.5 transition-all duration-300">
+        <span id="hamburgerLine1" class="hamburger-line"></span>
+        <span id="hamburgerLine2" class="hamburger-line"></span>
+        <span id="hamburgerLine3" class="hamburger-line w-3/4"></span>
+      </div>
     </button>
   </nav>
-
-  <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-gray-100 px-4 py-4 space-y-3">
-    <a href="/" class="block text-gray-700 hover:text-blue-600 transition">Início</a>
-    <a href="/sobre" class="block text-gray-700 hover:text-blue-600 transition">Equipe</a>
-    <a href="/portfolio" class="block text-gray-700 hover:text-blue-600 transition">Portfólio</a>
-    <a href="/blog" class="block text-gray-700 hover:text-blue-600 transition">Blog</a>
-    <a href="/rede-colaborativa" class="block text-gray-700 hover:text-blue-600 transition">Rede Colaborativa</a>
-    <a href="/mostra" class="block text-gray-700 hover:text-blue-600 transition">Mostra</a>
-    <a href="/contato" class="block bg-blue-600 text-white px-4 py-2 rounded-lg text-center hover:bg-blue-700 transition">
-      Contato
-    </a>
-  </div>
 </header>
 
-<script>
-  const menuButton = document.getElementById('menuButton');
-  const mobileMenu = document.getElementById('mobileMenu');
+<!-- Mobile Full-Screen Overlay Menu -->
+<div id="mobileOverlay" class="fixed inset-0 z-[55] pointer-events-none opacity-0 transition-opacity duration-400" style="background: #2C1F15;">
+  <div class="h-full flex flex-col justify-center px-8 py-24 overflow-y-auto">
+    
+    <!-- Navegação -->
+    <div class="mobile-category mb-10">
+      <h3 class="category-header">Navegação</h3>
+      <div class="category-line"></div>
+      <ul class="space-y-3">
+        <li><a href="/" class="menu-link">Início</a></li>
+        <li><a href="/sobre" class="menu-link">Sobre</a></li>
+        <li><a href="/blog" class="menu-link">Blog</a></li>
+      </ul>
+    </div>
 
-  menuButton.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
+    <!-- Projetos -->
+    <div class="mobile-category mb-10">
+      <h3 class="category-header">Projetos</h3>
+      <div class="category-line"></div>
+      <ul class="space-y-3">
+        <li><a href="/portfolio" class="menu-link">Portfólio</a></li>
+        <li><a href="/editora" class="menu-link">Editora</a></li>
+        <li><a href="/mostra" class="menu-link">Mostra</a></li>
+        <li><a href="/rede-colaborativa" class="menu-link">Game Hub</a></li>
+      </ul>
+    </div>
+
+    <!-- Contato -->
+    <div class="mobile-category">
+      <a href="/contato" id="ctaButton" class="cta-mobile-button">
+        Contato
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <div id="menuFooter" class="absolute bottom-8 left-8 right-8">
+      <div class="footer-divider"></div>
+      <p class="footer-text">© 2024 Kaipê Studio</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Estilos organizados por componente */
+  
+  /* Desktop Nav Links */
+  .nav-link-desktop {
+    @apply text-sm font-medium transition-colors duration-200;
+    color: #4A3728;
+  }
+  
+  .nav-link-desktop:hover {
+    color: #C75B39;
+  }
+
+  /* Hamburger Lines */
+  .hamburger-line {
+    @apply block h-0.5 w-full transition-all duration-300;
+    background: #2C1F15;
+  }
+
+  /* Mobile Category */
+  .mobile-category {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .category-header {
+    @apply text-xs font-mono font-semibold uppercase tracking-widest mb-4;
+    color: #C75B39;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease-out;
+  }
+
+  .category-line {
+    @apply h-px mb-4 transform scale-x-0 origin-left;
+    background: linear-gradient(90deg, #C75B39, transparent);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .menu-link {
+    @apply block text-3xl font-display font-black transition-all duration-300;
+    color: #FDF6E3;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .menu-link:hover {
+    color: #C75B39;
+    transform: translateX(10px);
+  }
+
+  /* CTA Mobile Button */
+  .cta-mobile-button {
+    @apply inline-block text-3xl font-display font-black px-8 py-4 mt-4 transition-all duration-300;
+    background: #C75B39;
+    color: #FDF6E3;
+    border: 2px solid #FDF6E3;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .cta-mobile-button:hover {
+    background: #FDF6E3;
+    color: #C75B39;
+    transform: scale(1.05);
+  }
+
+  /* Menu Footer */
+  #menuFooter {
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+  }
+
+  .footer-divider {
+    @apply h-px;
+    background: linear-gradient(90deg, #C75B39, transparent);
+  }
+
+  .footer-text {
+    @apply text-xs font-mono mt-4;
+    color: rgba(253,246,227,0.4);
+  }
+
+  /* Estados de animação para o menu aberto */
+  .mobile-category.open {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .category-header.open {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .category-line.open {
+    transform: scaleX(1);
+  }
+
+  .menu-link.open {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .menu-link.open:hover {
+    color: #C75B39;
+    transform: translateX(10px);
+  }
+
+  .cta-mobile-button.open {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  #menuFooter.open {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  (function() {
+    'use strict';
+
+    // DOM Elements
+    const elements = {
+      menuButton: document.getElementById('menuButton'),
+      overlay: document.getElementById('mobileOverlay'),
+      lines: {
+        line1: document.getElementById('hamburgerLine1'),
+        line2: document.getElementById('hamburgerLine2'),
+        line3: document.getElementById('hamburgerLine3')
+      },
+      categories: document.querySelectorAll('.mobile-category'),
+      headers: document.querySelectorAll('.category-header'),
+      linesElements: document.querySelectorAll('.category-line'),
+      links: document.querySelectorAll('.menu-link'),
+      cta: document.getElementById('ctaButton'),
+      footer: document.getElementById('menuFooter')
+    };
+
+    let isOpen = false;
+    let timeouts = [];
+
+    // Utilities
+    const clearTimeouts = () => {
+      timeouts.forEach(t => clearTimeout(t));
+      timeouts = [];
+    };
+
+    const setDelayed = (fn, delay) => {
+      const id = setTimeout(fn, delay);
+      timeouts.push(id);
+      return id;
+    };
+
+    // Menu state management
+    const menu = {
+      open() {
+        isOpen = true;
+        clearTimeouts();
+
+        // Show overlay
+        elements.overlay.style.pointerEvents = 'auto';
+        elements.overlay.style.opacity = '1';
+
+        // Animate hamburger to X
+        const { line1, line2, line3 } = elements.lines;
+        line1.style.transform = 'rotate(45deg) translate(5px, 5px)';
+        line1.style.background = '#FDF6E3';
+        line2.style.opacity = '0';
+        line3.style.transform = 'rotate(-45deg) translate(5px, -5px)';
+        line3.style.width = '100%';
+        line3.style.background = '#FDF6E3';
+
+        // Animate categories with stagger
+        elements.categories.forEach((cat, catIndex) => {
+          const baseDelay = 150 + catIndex * 120;
+
+          setDelayed(() => cat.classList.add('open'), baseDelay);
+          
+          const header = cat.querySelector('.category-header');
+          if (header) {
+            setDelayed(() => header.classList.add('open'), baseDelay + 100);
+          }
+
+          const line = cat.querySelector('.category-line');
+          if (line) {
+            setDelayed(() => line.classList.add('open'), baseDelay + 150);
+          }
+
+          const links = cat.querySelectorAll('.menu-link');
+          links.forEach((link, linkIndex) => {
+            setDelayed(() => link.classList.add('open'), baseDelay + 200 + linkIndex * 80);
+          });
+        });
+
+        // Animate CTA
+        setDelayed(() => elements.cta.classList.add('open'), 600);
+
+        // Animate footer
+        if (elements.footer) {
+          setDelayed(() => elements.footer.classList.add('open'), 800);
+        }
+
+        // Prevent body scroll
+        document.body.style.overflow = 'hidden';
+      },
+
+      close() {
+        isOpen = false;
+        clearTimeouts();
+
+        // Hide footer
+        if (elements.footer) {
+          elements.footer.classList.remove('open');
+        }
+
+        // Hide CTA
+        elements.cta.classList.remove('open');
+
+        // Hide links in reverse order
+        const reversedLinks = [...elements.links].reverse();
+        reversedLinks.forEach((link, index) => {
+          setDelayed(() => {
+            link.classList.remove('open');
+          }, index * 40);
+        });
+
+        // Hide categories in reverse order
+        const reversedCats = [...elements.categories].reverse();
+        reversedCats.forEach((cat, index) => {
+          setDelayed(() => {
+            cat.classList.remove('open');
+          }, 200 + index * 60);
+        });
+
+        // Hide overlay
+        setDelayed(() => {
+          elements.overlay.style.opacity = '0';
+          setDelayed(() => {
+            elements.overlay.style.pointerEvents = 'none';
+            clearTimeouts();
+          }, 400);
+        }, 400);
+
+        // Reset hamburger
+        const { line1, line2, line3 } = elements.lines;
+        line1.style.transform = 'none';
+        line1.style.background = '#2C1F15';
+        line2.style.opacity = '1';
+        line3.style.transform = 'none';
+        line3.style.width = '75%';
+        line3.style.background = '#2C1F15';
+
+        // Re-enable body scroll
+        document.body.style.overflow = '';
+      },
+
+      toggle() {
+        if (isOpen) {
+          this.close();
+        } else {
+          this.open();
+        }
+      }
+    };
+
+    // Event listeners
+    elements.menuButton.addEventListener('click', () => menu.toggle());
+
+    // Close menu on link click
+    elements.overlay.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (isOpen) menu.close();
+      });
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen) menu.close();
+    });
+
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', () => {
+      clearTimeouts();
+    });
+
+  })();
 </script>

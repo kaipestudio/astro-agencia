@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conceito 4: Editorial Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --black: #0A0A0A;
+      --white: #FAFAFA;
+      --gray-100: #F5F5F5;
+      --gray-200: #E5E5E5;
+      --gray-400: #A3A3A3;
+      --gray-600: #525252;
+      --gray-800: #262626;
+      --accent: #D97706;
+      --accent-light: #F59E0B;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+    
+    /* CONCEPT BADGE */
+    .concept-badge {
+      position: fixed;
+      top: 1.5rem;
+      right: 3rem;
+      background: var(--black);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      z-index: 200;
+    }
+    
+    /* NAV - EDITORIAL */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.5rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(250,250,250,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--gray-200);
+    }
+    
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+    
+    .logo span {
+      color: var(--accent);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      color: var(--gray-600);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .nav-links a:hover {
+      color: var(--black);
+    }
+    
+    .nav-cta {
+      background: var(--black);
+      color: white;
+      padding: 0.875rem 1.75rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    
+    .nav-cta:hover {
+      background: var(--accent);
+    }
+    
+    /* HERO - EDITORIAL */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 8rem 4rem 4rem;
+      gap: 4rem;
+      align-items: center;
+    }
+    
+    .hero-content {
+      max-width: 600px;
+    }
+    
+    .hero-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 7vw, 6rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--gray-600);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .btn-primary {
+      background: var(--black);
+      color: white;
+      padding: 1.25rem 2.5rem;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 100px;
+      transition: all 0.3s;
+    }
+    
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: var(--black);
+      padding: 1.25rem 2.5rem;
+      border: 2px solid var(--gray-200);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 100px;
+      transition: all 0.3s;
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--black);
+    }
+    
+    /* HERO VISUAL */
+    .hero-visual {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .hero-image {
+      width: 100%;
+      height: 600px;
+      background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
+      border-radius: 2rem;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8rem;
+    }
+    
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      opacity: 0.03;
+    }
+    
+    .hero-floating {
+      position: absolute;
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .hero-floating-1 {
+      top: 10%;
+      right: -5%;
+      animation-delay: 0s;
+    }
+    
+    .hero-floating-2 {
+      bottom: 15%;
+      left: -5%;
+      animation-delay: -3s;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    
+    .floating-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .floating-text {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--black);
+    }
+    
+    .floating-sub {
+      font-size: 0.75rem;
+      color: var(--gray-400);
+    }
+    
+    /* STATS BAR */
+    .stats-bar {
+      display: flex;
+      gap: 4rem;
+      padding: 4rem;
+      border-top: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--gray-200);
+      background: var(--gray-100);
+    }
+    
+    .stat {
+      flex: 1;
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--black);
+    }
+    
+    .stat-label {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    /* SERVICES - EDITORIAL */
+    .services {
+      padding: 8rem 4rem;
+      background: var(--white);
+    }
+    
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+    }
+    
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    
+    .section-link {
+      color: var(--black);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s;
+    }
+    
+    .section-link:hover {
+      color: var(--accent);
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    
+    .service-card {
+      padding: 3rem 2.5rem;
+      border: 1px solid var(--gray-200);
+      border-radius: 1.5rem;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+    
+    .service-card:hover {
+      border-color: var(--black);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    }
+    
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .service-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .service-desc {
+      font-size: 0.95rem;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+    
+    /* PORTFOLIO - EDITORIAL */
+    .portfolio {
+      padding: 8rem 4rem;
+      background: var(--gray-100);
+    }
+    
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+    
+    .portfolio-item {
+      position: relative;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .portfolio-item:hover {
+      transform: scale(1.02);
+    }
+    
+    .portfolio-item:first-child {
+      grid-row: span 2;
+    }
+    
+    .portfolio-thumb {
+      width: 100%;
+      height: 100%;
+      min-height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .portfolio-item:nth-child(1) .portfolio-thumb {
+      background: linear-gradient(135deg, #1F2937, #374151);
+      min-height: 750px;
+    }
+    
+    .portfolio-item:nth-child(2) .portfolio-thumb {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    }
+    
+    .portfolio-item:nth-child(3) .portfolio-thumb {
+      background: linear-gradient(135deg, #065F46, #10B981);
+    }
+    
+    .portfolio-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2.5rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.9));
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .portfolio-item:hover .portfolio-info {
+      transform: translateY(0);
+    }
+    
+    .portfolio-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: white;
+    }
+    
+    .portfolio-info p {
+      color: rgba(255,255,255,0.7);
+      margin-top: 0.5rem;
+    }
+    
+    /* TESTIMONIALS */
+    .testimonials {
+      padding: 8rem 4rem;
+      background: var(--white);
+    }
+    
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+    
+    .testimonial-card {
+      padding: 3rem;
+      border: 1px solid var(--gray-200);
+      border-radius: 1.5rem;
+      transition: all 0.3s;
+    }
+    
+    .testimonial-card:hover {
+      border-color: var(--accent);
+    }
+    
+    .testimonial-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      color: var(--gray-800);
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+    
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    
+    .testimonial-role {
+      font-size: 0.8rem;
+      color: var(--gray-400);
+    }
+    
+    /* CTA */
+    .cta {
+      padding: 8rem 4rem;
+      background: var(--black);
+      color: white;
+      text-align: center;
+    }
+    
+    .cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta h2 em {
+      font-style: italic;
+      color: var(--accent-light);
+    }
+    
+    .cta p {
+      font-size: 1.25rem;
+      opacity: 0.7;
+      margin-bottom: 3rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    
+    .btn-white {
+      background: white;
+      color: var(--black);
+      padding: 1.25rem 2.5rem;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 100px;
+      transition: all 0.3s;
+    }
+    
+    .btn-white:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline-white {
+      background: transparent;
+      color: white;
+      padding: 1.25rem 2.5rem;
+      border: 2px solid rgba(255,255,255,0.3);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 100px;
+      transition: all 0.3s;
+    }
+    
+    .btn-outline-white:hover {
+      border-color: white;
+    }
+    
+    /* FOOTER */
+    footer {
+      padding: 4rem;
+      border-top: 1px solid var(--gray-200);
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      background: var(--gray-100);
+    }
+    
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 900;
+    }
+    
+    .footer-brand span {
+      color: var(--accent);
+    }
+    
+    .footer-tagline {
+      color: var(--gray-600);
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      max-width: 300px;
+      line-height: 1.6;
+    }
+    
+    .footer-links h4 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gray-400);
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-links a {
+      color: var(--gray-600);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--black);
+    }
+    
+    .footer-bottom {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--gray-200);
+      font-size: 0.8rem;
+      color: var(--gray-400);
+    }
+  </style>
+</head>
+<body>
+  <div class="concept-badge">📰 Conceito 4: Editorial Agency</div>
+  
+  <nav>
+    <div class="logo">Studio<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#">Início</a></li>
+      <li><a href="#">Serviços</a></li>
+      <li><a href="#">Portfólio</a></li>
+      <li><a href="#">Sobre</a></li>
+    </ul>
+    <a href="#" class="nav-cta">Contato</a>
+  </nav>
+  
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-label">Agência de Criatividade</div>
+      <h1>Criamos <em>marcas</em> que ficam na memória</h1>
+      <p>Transformamos ideias em experiências visuais memoráveis. Branding, design e estratégia para marcas que querem se destacar.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn-primary">Iniciar Projeto</a>
+        <a href="#" class="btn-secondary">Ver Portfólio</a>
+      </div>
+    </div>
+    
+    <div class="hero-visual">
+      <div class="hero-image">✨</div>
+      
+      <div class="hero-floating hero-floating-1">
+        <div class="floating-icon">🎨</div>
+        <div class="floating-text">Branding</div>
+        <div class="floating-sub">Identidade Visual</div>
+      </div>
+      
+      <div class="hero-floating hero-floating-2">
+        <div class="floating-icon">📱</div>
+        <div class="floating-text">Digital</div>
+        <div class="floating-sub">UI/UX Design</div>
+      </div>
+    </div>
+  </section>
+  
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-number">120+</div>
+      <div class="stat-label">Projetos Entregues</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">98%</div>
+      <div class="stat-label">Clientes Satisfeitos</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">15</div>
+      <div class="stat-label">Prêmios de Design</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">8+</div>
+      <div class="stat-label">Anos de Experiência</div>
+    </div>
+  </div>
+  
+  <section class="services">
+    <div class="section-header">
+      <div>
+        <div class="section-label">Nossos Serviços</div>
+        <h2 class="section-title">Soluções criativas para sua marca</h2>
+      </div>
+      <a href="#" class="section-link">Ver todos os serviços →</a>
+    </div>
+    
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <h3 class="service-title">Branding</h3>
+        <p class="service-desc">Identidade visual completa que conta a história da sua marca e conecta com seu público.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">💻</div>
+        <h3 class="service-title">Web Design</h3>
+        <p class="service-desc">Sites modernos e responsivos que convertem visitantes em clientes.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <h3 class="service-title">UI/UX Design</h3>
+        <p class="service-desc">Experiências digitais intuitivas e memoráveis para seus aplicativos.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">📸</div>
+        <h3 class="service-title">Direção de Arte</h3>
+        <p class="service-desc">Conceitos visuais impactantes para campanhas e projetos especiais.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">🎬</div>
+        <h3 class="service-title">Motion Design</h3>
+        <p class="service-desc">Animações e vídeos que comunicam sua mensagem com impacto.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3 class="service-title">Estratégia Digital</h3>
+        <p class="service-desc">Planejamento estratégico para maximizar presença online.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="portfolio">
+    <div class="section-header">
+      <div>
+        <div class="section-label">Nosso Portfólio</div>
+        <h2 class="section-title">Projetos em destaque</h2>
+      </div>
+      <a href="#" class="section-link">Ver todos →</a>
+    </div>
+    
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <div class="portfolio-thumb">🏢</div>
+        <div class="portfolio-info">
+          <h3>Rebranding Completo</h3>
+          <p>Empresa de tecnologia - Identidade Visual</p>
+        </div>
+      </div>
+      
+      <div class="portfolio-item">
+        <div class="portfolio-thumb">☕</div>
+        <div class="portfolio-info">
+          <h3>Café Artesanal</h3>
+          <p>Branding e Embalagens</p>
+        </div>
+      </div>
+      
+      <div class="portfolio-item">
+        <div class="portfolio-thumb">🛍️</div>
+        <div class="portfolio-info">
+          <h3>E-commerce Premium</h3>
+          <p>Web Design e UI/UX</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="testimonials">
+    <div class="section-header">
+      <div>
+        <div class="section-label">Depoimentos</div>
+        <h2 class="section-title">O que dizem nossos clientes</h2>
+      </div>
+    </div>
+    
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"A equipe superou todas as expectativas. Nosso novo branding gerou um aumento de 40% no reconhecimento da marca."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">👩</div>
+          <div>
+            <div class="testimonial-name">Maria Silva</div>
+            <div class="testimonial-role">CEO, TechStart</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"Profissionalismo e criatividade em cada detalhe. Recomendo para qualquer empresa que queira se destacar."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">👨</div>
+          <div>
+            <div class="testimonial-name">João Santos</div>
+            <div class="testimonial-role">Diretor, InnovaLab</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="cta">
+    <h2>Pronto para <em>transformar</em> sua marca?</h2>
+    <p>Vamos criar algo incrível juntos. Entre em contato e comece seu próximo projeto.</p>
+    <div class="cta-buttons">
+      <a href="#" class="btn-white">Falar Conosco</a>
+      <a href="#" class="btn-outline-white">Ver Mais Projetos</a>
+    </div>
+  </section>
+  
+  <footer>
+    <div>
+      <div class="footer-brand">Studio<span>.</span></div>
+      <p class="footer-tagline">Agência de criatividade especializada em branding, design e estratégia digital.</p>
+    </div>
+    
+    <div class="footer-links">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="#">Sobre Nós</a></li>
+        <li><a href="#">Equipe</a></li>
+        <li><a href="#">Carreiras</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-links">
+      <h4>Serviços</h4>
+      <ul>
+        <li><a href="#">Branding</a></li>
+        <li><a href="#">Web Design</a></li>
+        <li><a href="#">UI/UX</a></li>
+        <li><a href="#">Motion</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-links">
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="#">contato@studio.com</a></li>
+        <li><a href="#">(11) 99999-9999</a></li>
+        <li><a href="#">São Paulo, Brasil</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-bottom">
+      © 2024 Studio. Todos os direitos reservados.
+    </div>
+  </footer>
+</body>
+</html>

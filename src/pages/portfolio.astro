@@ -1,124 +1,58 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { gradientMap, defaultGradient } from '../lib/gradients';
+
+const projects = await getCollection('portfolio');
 ---
 
-<Layout title="Portfólio - Kaipê Studio" description="Projetos desenvolvidos pela Kaipê Studio e Coletivo K.P.">
-  <section class="py-20 px-4 bg-white">
-    <div class="container mx-auto max-w-6xl">
-      <h1 class="text-4xl md:text-5xl font-bold text-center mb-6">Portfólio</h1>
-      <p class="text-center text-gray-600 text-lg mb-12 max-w-3xl mx-auto">
-        A Kaipê Studio e seus colaboradores têm em seu portfólio inúmeros projetos culturais e educacionais. 
-        Nossas produções vão desde espetáculos teatrais e publicações a exposições artísticas e desenvolvimento de games.
+<Layout title="Portfólio - Kaipê Studio" description="Jogos digitais, quadrinhos, audiovisual e projetos culturais criados pelo Coletivo K.P. de Artistas Digitais.">
+  <!-- Hero Section -->
+  <section class="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-24 pb-16 px-6" style="background: linear-gradient(135deg, #FDF6E3 0%, #FAF3E0 100%); border-bottom: 2px solid #2C1F15;">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    
+    <div class="container mx-auto text-center max-w-4xl relative z-10">
+      <span class="text-xs font-mono font-semibold uppercase tracking-widest" style="color: #C75B39;">Nossos Trabalhos</span>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black mt-3 tracking-tight" style="color: #2C1F15;">
+        Port<span class="gradient-text">fólio</span>
+      </h1>
+      <p class="text-lg mt-6 max-w-2xl mx-auto" style="color: #4A3728; opacity: 0.8;">
+        Projetos culturais, educacionais e de desenvolvimento de games produzidos pelo Coletivo K.P.
       </p>
+    </div>
+  </section>
 
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Projeto 1 -->
-        <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition group">
-          <div class="h-48 bg-gradient-to-br from-purple-400 to-blue-400 flex items-center justify-center text-6xl">
-            🎮
-          </div>
-          <div class="p-6">
-            <h3 class="text-2xl font-bold">Guia Mínimo da República dos Vermes Realistas</h3>
-            <p class="text-gray-600 mt-2">2024</p>
-            <p class="text-gray-700 mt-3">
-              Game no estilo Visual Novel baseado nos personagens da webtirinha "Vermes Realistas". 
-              Primeiro jogo produzido pela Kaipê Studio com recursos da Lei Paulo Gustavo.
-            </p>
-            <a href="#" class="inline-block mt-4 text-blue-600 font-semibold hover:text-blue-800 transition">
-              Saiba mais →
-            </a>
-          </div>
-        </div>
-
-        <!-- Projeto 2 -->
-        <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition group">
-          <div class="h-48 bg-gradient-to-br from-red-400 to-orange-400 flex items-center justify-center text-6xl">
-            🎭
-          </div>
-          <div class="p-6">
-            <h3 class="text-2xl font-bold">Prometeu Conectado</h3>
-            <p class="text-gray-600 mt-2">2024</p>
-            <p class="text-gray-700 mt-3">
-              Em parceria com a companhia teatral NUENCENA, desenvolvemos vários jogos interativos 
-              que integraram a obra teatral, incluindo um game jogado pelo ator durante o espetáculo.
-            </p>
-            <a href="#" class="inline-block mt-4 text-blue-600 font-semibold hover:text-blue-800 transition">
-              Saiba mais →
-            </a>
-          </div>
-        </div>
-
-        <!-- Projeto 3 -->
-        <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition group">
-          <div class="h-48 bg-gradient-to-br from-green-400 to-teal-400 flex items-center justify-center text-6xl">
-            🐾
-          </div>
-          <div class="p-6">
-            <h3 class="text-2xl font-bold">Jogo da Bagunça Pet</h3>
-            <p class="text-gray-600 mt-2">2022</p>
-            <p class="text-gray-700 mt-3">
-              Protótipo de jogo de tabuleiro baseado nos clássicos jogos de detetive. 
-              Primeiro experimento de game design do Coletivo K.P.
-            </p>
-            <a href="#" class="inline-block mt-4 text-blue-600 font-semibold hover:text-blue-800 transition">
-              Saiba mais →
-            </a>
-          </div>
-        </div>
-
-        <!-- Projeto 4 -->
-        <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition group">
-          <div class="h-48 bg-gradient-to-br from-pink-400 to-rose-400 flex items-center justify-center text-6xl">
-            🐛
-          </div>
-          <div class="p-6">
-            <h3 class="text-2xl font-bold">Webtirinhas Vermes Realistas</h3>
-            <p class="text-gray-600 mt-2">2018-2020</p>
-            <p class="text-gray-700 mt-3">
-              Tirinhas humorísticas sobre o estilo de vida parasita dos ilustres personagens 
-              habitantes da República dos Vermes Realistas.
-            </p>
-            <a href="#" class="inline-block mt-4 text-blue-600 font-semibold hover:text-blue-800 transition">
-              Saiba mais →
-            </a>
-          </div>
-        </div>
-
-        <!-- Projeto 5 -->
-        <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition group">
-          <div class="h-48 bg-gradient-to-br from-amber-400 to-yellow-400 flex items-center justify-center text-6xl">
-            🎬
-          </div>
-          <div class="p-6">
-            <h3 class="text-2xl font-bold">Videoefa – Oficinas de Vídeo-Documentário</h3>
-            <p class="text-gray-600 mt-2">2014</p>
-            <p class="text-gray-700 mt-3">
-              Oficinas de vídeo-documentário realizadas em escolas rurais do Mato Grosso do Sul. 
-              Primeira experiência com audiovisual e edição digital.
-            </p>
-            <a href="#" class="inline-block mt-4 text-blue-600 font-semibold hover:text-blue-800 transition">
-              Saiba mais →
-            </a>
-          </div>
-        </div>
-
-        <!-- Projeto 6 -->
-        <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition group">
-          <div class="h-48 bg-gradient-to-br from-indigo-400 to-purple-400 flex items-center justify-center text-6xl">
-            🎥
-          </div>
-          <div class="p-6">
-            <h3 class="text-2xl font-bold">O Forasteiro do Centro-Oeste</h3>
-            <p class="text-gray-600 mt-2">2012</p>
-            <p class="text-gray-700 mt-3">
-              Produção audiovisual ganhadora do prêmio de melhor filme trash no Festival Universitário 
-              de Audiovisual – Fuá (2012) do Mato Grosso do Sul.
-            </p>
-            <a href="#" class="inline-block mt-4 text-blue-600 font-semibold hover:text-blue-800 transition">
-              Saiba mais →
-            </a>
-          </div>
-        </div>
+  <!-- Projetos -->
+  <section class="py-16 px-6" style="background: #FAF3E0;">
+    <div class="container mx-auto max-w-6xl">
+      <div class="grid md:grid-cols-2 gap-6">
+        {projects.sort((a, b) => a.data.order - b.data.order).map((project) => (
+          <a 
+            href={`/portfolio/${project.id}`} 
+            class="portfolio-card rounded-3xl overflow-hidden relative block"
+            style={`min-height: ${project.data.featured ? '350px' : '300px'}; background: ${gradientMap[project.data.gradient] || defaultGradient}; border: 2px solid #2C1F15; box-shadow: 6px 6px 0 #2C1F15;`}
+          >
+            <!-- Imagem de Fundo -->
+            {project.data.image && (
+              <img 
+                src={project.data.image} 
+                alt={project.data.title}
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+              />
+            )}
+            <div class="absolute inset-0 flex flex-col justify-end p-8" style="background: linear-gradient(transparent 40%, rgba(44,31,21,0.9));">
+              <span class="text-xs font-semibold uppercase tracking-wider mb-2" style="color: rgba(253,246,227,0.6);">
+                {project.data.year} • {project.data.category}
+              </span>
+              <h3 class={`${project.data.featured ? 'text-2xl' : 'text-xl'} font-black`} style="color: #FDF6E3;">{project.data.title}</h3>
+              <p class="mt-2 text-sm" style="color: rgba(253,246,227,0.8);">
+                {project.data.description}
+              </p>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   </section>

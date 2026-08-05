@@ -2,63 +2,92 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Equipe - Kaipê Studio" description="Conheça a história do Coletivo K.P. de Artistas Digitais">
-  <section class="py-20 px-4 bg-gray-50">
+<Layout title="Sobre - Kaipê Studio" description="Conheça o Coletivo K.P. de Artistas Digitais de Dourados: Maria Fernanda, Fernanda Pinto e Braz Pinto Jr. História desde 2016.">
+  <!-- Hero Section -->
+  <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-24 pb-16 px-6" style="background: linear-gradient(135deg, #FDF6E3 0%, #FAF3E0 100%); border-bottom: 2px solid #2C1F15;">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    
+    <div class="container mx-auto text-center max-w-4xl relative z-10">
+      <span class="text-xs font-mono font-semibold uppercase tracking-widest" style="color: #C75B39;">Nossa História</span>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black mt-3 tracking-tight" style="color: #2C1F15;">
+        Quem <span class="gradient-text">Somos</span>
+      </h1>
+      <p class="text-lg mt-6 max-w-2xl mx-auto" style="color: #4A3728; opacity: 0.8;">
+        Conheça o coletivo de artistas digitais por trás da Kaipê Studio
+      </p>
+    </div>
+  </section>
+
+  <!-- Histórico -->
+  <section class="py-20 px-6" style="background: #FAF3E0;">
     <div class="container mx-auto max-w-4xl">
-      <h1 class="text-4xl md:text-5xl font-bold text-center mb-12">Quem Somos</h1>
-      
-      <div class="prose prose-lg prose-blue mx-auto">
-        <div class="bg-white p-8 rounded-2xl shadow-lg mb-12">
-          <h2 class="text-2xl font-bold text-blue-600">Histórico do Grupo</h2>
-          <p class="text-gray-700 leading-relaxed mt-4">
-            O <strong>Coletivo K.P. de Artistas Digitais de Dourados</strong> surgiu em 2016 
+      <div class="rounded-3xl p-8 md:p-12 bg-card border-subtle">
+        <h2 class="text-2xl font-black mb-6" style="color: #2C1F15;">Histórico do Grupo</h2>
+        
+        <div class="space-y-6 leading-relaxed" style="color: #4A3728;">
+          <p>
+            O <strong style="color: #2C1F15;">Coletivo K.P. de Artistas Digitais de Dourados</strong> surgiu em 2016 
             como um grupo de produtores independentes formado pelas artistas digitais 
-            <strong>Maria Fernanda Kozlowski</strong>, ilustradora e compositora, 
-            <strong>Fernanda Pinto</strong>, psicóloga e designer de produtos personalizados, e 
-            <strong>Braz Pinto Junior</strong>, dramaturgo, professor universitário e entusiasta de programação.
+            <strong style="color: #2C1F15;">Maria Fernanda Kozlowski</strong>, ilustradora e compositora, 
+            <strong style="color: #2C1F15;">Fernanda Pinto</strong>, psicóloga e designer de produtos personalizados, e 
+            <strong style="color: #2C1F15;">Braz Pinto Junior</strong>, dramaturgo, professor universitário e entusiasta de programação.
           </p>
-          <p class="text-gray-700 leading-relaxed mt-4">
-            Desde 2018 o coletivo é responsável pela publicação da tirinha digital <strong>"Vermes Realistas"</strong>, 
+          
+          <p>
+            Desde 2018 o coletivo é responsável pela publicação da tirinha digital <strong style="color: #2C1F15;">"Vermes Realistas"</strong>, 
             uma produção independente que mistura filosofia, ciência e entretenimento, produzida para o público das redes sociais.
           </p>
-          <p class="text-gray-700 leading-relaxed mt-4">
+          
+          <p>
             Em 2021, os artistas do coletivo iniciaram uma pesquisa com gamificação e produção de jogos educacionais de tabuleiro, 
-            criando o protótipo do jogo de tabuleiro <strong>"Jogo da Bagunça Pet"</strong>, um jogo inspirado no modelo tradicional dos jogos de investigação e RPG.
+            criando o protótipo do jogo de tabuleiro <strong style="color: #2C1F15;">"Jogo da Bagunça Pet"</strong>, um jogo inspirado no modelo tradicional dos jogos de investigação e RPG.
           </p>
-          <p class="text-gray-700 leading-relaxed mt-4">
+          
+          <p>
             A partir de 2022, o grupo iniciou seus primeiros testes com a produção de aplicativos interativos para web e celulares, 
             além de realizar experimentações com frameworks específicos para desenvolvimento de jogos de plataforma, Visual Novels, 
             ambientes virtuais e arte digital interativa.
           </p>
-          <p class="text-gray-700 leading-relaxed mt-4">
-            Em janeiro de 2024, com criação do <strong>Núcleo de Desenvolvimento de Jogos Digitais – Kaipê Studio</strong>, 
+          
+          <p>
+            Em janeiro de 2024, com criação do <strong style="color: #2C1F15;">Núcleo de Desenvolvimento de Jogos Digitais – Kaipê Studio</strong>, 
             foi possível a ampliação das pesquisas desenvolvidas pelo coletivo e do alcance dos projetos realizados, 
             possibilitando a troca de experiências com outros artistas digitais e desenvolvedores de jogos por meio de uma plataforma colaborativa online.
           </p>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <h2 class="text-2xl font-bold text-center mb-8">Nossa Equipe</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition text-center">
-            <div class="text-6xl mb-4">🎭</div>
-            <h3 class="text-xl font-bold">Maria Fernanda Kozlowski</h3>
-            <p class="text-gray-600">Ilustradora e compositora</p>
-            <p class="text-sm text-gray-500 mt-2">Cantora e compositora, artista visual</p>
-          </div>
-          
-          <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition text-center">
-            <div class="text-6xl mb-4">🎨</div>
-            <h3 class="text-xl font-bold">Fernanda Pinto</h3>
-            <p class="text-gray-600">Psicóloga e designer</p>
-            <p class="text-sm text-gray-500 mt-2">Designer de produtos personalizados</p>
-          </div>
-          
-          <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition text-center">
-            <div class="text-6xl mb-4">🎮</div>
-            <h3 class="text-xl font-bold">Braz Pinto Junior</h3>
-            <p class="text-gray-600">Dramaturgo e desenvolvedor</p>
-            <p class="text-sm text-gray-500 mt-2">Professor universitário e entusiasta de programação</p>
-          </div>
+  <!-- Equipe -->
+  <section class="py-20 px-6" style="background: linear-gradient(135deg, #FAF3E0 0%, #FDF6E3 100%); border-top: 2px solid #2C1F15;">
+    <div class="container mx-auto max-w-5xl">
+      <div class="text-center mb-12">
+        <span class="text-xs font-mono font-semibold uppercase tracking-widest" style="color: #C75B39;">Equipe</span>
+        <h2 class="text-3xl md:text-4xl font-black mt-3" style="color: #2C1F15;">Nossos Artistas</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="rounded-3xl p-8 text-center card-hover bg-card border-subtle">
+          <div class="text-6xl mb-4">🎭</div>
+          <h3 class="text-xl font-bold" style="color: #2C1F15;">Maria Fernanda Kozlowski</h3>
+          <p class="gradient-text font-semibold mt-2">Ilustradora e Compositora</p>
+          <p class="text-sm mt-3" style="color: #4A3728; opacity: 0.6;">Cantora, compositora e artista visual</p>
+        </div>
+
+        <div class="rounded-3xl p-8 text-center card-hover bg-card border-subtle">
+          <div class="text-6xl mb-4">🎨</div>
+          <h3 class="text-xl font-bold" style="color: #2C1F15;">Fernanda Pinto</h3>
+          <p class="gradient-text font-semibold mt-2">Psicóloga e Designer</p>
+          <p class="text-sm mt-3" style="color: #4A3728; opacity: 0.6;">Designer de produtos personalizados</p>
+        </div>
+
+        <div class="rounded-3xl p-8 text-center card-hover bg-card border-subtle">
+          <div class="text-6xl mb-4">🎮</div>
+          <h3 class="text-xl font-bold" style="color: #2C1F15;">Braz Pinto Junior</h3>
+          <p class="gradient-text font-semibold mt-2">Dramaturgo e Desenvolvedor</p>
+          <p class="text-sm mt-3" style="color: #4A3728; opacity: 0.6;">Professor universitário e entusiasta de programação</p>
         </div>
       </div>
     </div>

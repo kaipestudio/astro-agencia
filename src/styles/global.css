@@ -1,3 +1,284 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ============================
+   RETRO VINTAGE AGENCY THEME
+   ============================ */
+
+:root {
+  /* Retro Colors */
+  --cream: #FDF6E3;
+  --warm-white: #FAF3E0;
+  --sand: #E8DFD0;
+  --terracotta: #C75B39;
+  --terracotta-light: #E07B5B;
+  --olive: #5C6B4F;
+  --olive-light: #7A8B6A;
+  --mustard: #D4A843;
+  --brown: #4A3728;
+  --dark-brown: #2C1F15;
+  --off-white: #F5EDE0;
+  
+  /* Dark Theme for compatibility */
+  --dark: #2C1F15;
+  --darker: #1C1512;
+  --dark-card: rgba(44,31,21,0.05);
+  
+  /* Light Text */
+  --light: #FDF6E3;
+  --light-muted: rgba(74,55,40,0.8);
+  
+  /* Borders */
+  --border-subtle: rgba(44,31,21,0.15);
+  --border-hover: rgba(199,91,57,0.4);
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+
+body {
+  background: var(--cream);
+  color: var(--dark-brown);
+  overflow-x: hidden;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--terracotta);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--terracotta-light);
+}
+
+/* Selection */
+::selection {
+  background: var(--terracotta);
+  color: var(--cream);
+}
+
+/* ============================
+   COMPONENT STYLES
+   ============================ */
+
+/* Text Opacity Utilities */
+.text-light-high { color: rgba(74,55,40,0.9); }
+.text-light-muted { color: rgba(74,55,40,0.7); }
+.text-light-soft { color: rgba(74,55,40,0.8); }
+.text-light-dim { color: rgba(74,55,40,0.6); }
+.text-light-faint { color: rgba(74,55,40,0.5); }
+.text-light-ghost { color: rgba(74,55,40,0.4); }
+
+/* Card Background Utilities */
+.bg-card { 
+  background: var(--warm-white);
+  border: 2px solid var(--dark-brown);
+  box-shadow: 6px 6px 0 var(--dark-brown);
+}
+.bg-card-subtle { 
+  background: var(--off-white);
+  border: 2px solid var(--sand);
+  box-shadow: 4px 4px 0 var(--sand);
+}
+.bg-glass { 
+  background: rgba(253,246,227,0.8);
+  border: 2px solid var(--sand);
+  box-shadow: 4px 4px 0 var(--sand);
+}
+
+/* Border Utilities */
+.border-subtle { border: 2px solid var(--dark-brown); }
+.border-light { border: 2px solid var(--sand); }
+.border-blue-subtle { border: 2px solid var(--terracotta); }
+
+/* Gradient Background Utilities */
+.bg-blue-glow { background: rgba(199,91,57,0.15); }
+.bg-purple-glow { background: rgba(92,107,79,0.15); }
+.bg-green-glow { background: rgba(92,107,79,0.15); }
+.bg-amber-glow { background: rgba(212,168,67,0.15); }
+.bg-pink-glow { background: rgba(199,91,57,0.1); }
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--terracotta), var(--olive));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Retro Button */
+.btn-glow {
+  background: var(--terracotta);
+  color: var(--cream);
+  padding: 1rem 2rem;
+  border: 2px solid var(--dark-brown);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+  box-shadow: 4px 4px 0 var(--dark-brown);
+}
+
+.btn-glow:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--dark-brown);
+}
+
+/* Glass Button */
+.btn-glass {
+  background: transparent;
+  border: 2px solid var(--dark-brown);
+  color: var(--dark-brown);
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+}
+
+.btn-glass:hover {
+  background: var(--dark-brown);
+  color: var(--cream);
+}
+
+/* Floating Orbs */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  animation: float 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: var(--terracotta);
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 300px;
+  height: 300px;
+  background: var(--olive);
+  bottom: 20%;
+  right: 15%;
+  animation-delay: -3s;
+}
+
+.orb-3 {
+  width: 200px;
+  height: 200px;
+  background: var(--mustard);
+  top: 60%;
+  left: 60%;
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, -30px); }
+}
+
+/* Section Transitions */
+section {
+  scroll-snap-align: start;
+}
+
+/* Card Hover Effects */
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 6px 6px 0 var(--dark-brown);
+}
+
+.card-hover:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 var(--dark-brown);
+  border-color: var(--terracotta);
+}
+
+/* Service Item Hover */
+.service-item {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 6px 6px 0 var(--dark-brown);
+}
+
+.service-item:hover {
+  background: var(--terracotta);
+  color: var(--cream);
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 var(--dark-brown);
+}
+
+.service-item:hover h3,
+.service-item:hover p {
+  color: var(--cream);
+}
+
+/* Portfolio Card */
+.portfolio-card {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 6px 6px 0 var(--dark-brown);
+}
+
+.portfolio-card:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 var(--dark-brown);
+}
+
+/* Fade In Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Pulse Glow */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(199,91,57,0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(199,91,57,0.5);
+  }
+}
+
+.pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Retro Pattern Background */
+.retro-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C75B39' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}

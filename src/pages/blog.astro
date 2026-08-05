@@ -5,28 +5,47 @@ import { getCollection } from 'astro:content';
 const posts = await getCollection('posts');
 ---
 
-<Layout title="Blog - Kaipê Studio" description="Notícias, artigos e novidades da Kaipê Studio">
-  <section class="py-20 px-4 bg-gray-50">
-    <div class="container mx-auto max-w-6xl">
-      <h1 class="text-4xl md:text-5xl font-bold text-center mb-12">Blog</h1>
+<Layout title="Blog - Kaipê Studio" description="Artigos sobre game design, cultura digital, desenvolvimento de jogos e projetos do Coletivo K.P. de Dourados.">
+  <!-- Hero Section -->
+  <section class="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-24 pb-16 px-6" style="background: linear-gradient(135deg, #FDF6E3 0%, #FAF3E0 100%); border-bottom: 2px solid #2C1F15;">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    
+    <div class="container mx-auto text-center max-w-4xl relative z-10">
+      <span class="text-xs font-mono font-semibold uppercase tracking-widest" style="color: #C75B39;">Blog</span>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black mt-3 tracking-tight" style="color: #2C1F15;">
+        Novidades e <span class="gradient-text">Artigos</span>
+      </h1>
+      <p class="text-lg mt-6 max-w-2xl mx-auto" style="color: #4A3728; opacity: 0.8;">
+        Acompanhe as últimas novidades sobre jogos, cultura digital e projetos do coletivo
+      </p>
+    </div>
+  </section>
 
+  <!-- Posts -->
+  <section class="py-16 px-6" style="background: #FAF3E0;">
+    <div class="container mx-auto max-w-6xl">
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {posts.map((post) => (
-          <a href={`/blog/${post.slug}`} class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition group">
-            <div class="h-48 bg-gradient-to-br from-blue-400 to-purple-400 flex items-center justify-center text-6xl">
+          <a href={`/blog/${post.id}`} class="card-hover rounded-3xl overflow-hidden" style="background: #FDF6E3; border: 2px solid #2C1F15; box-shadow: 6px 6px 0 #2C1F15;">
+            <div class="h-48 flex items-center justify-center text-6xl" style="background: linear-gradient(135deg, #C75B39, #5C6B4F);">
               📝
             </div>
             <div class="p-6">
-              <h3 class="text-xl font-bold group-hover:text-blue-600 transition">{post.data.title}</h3>
-              <p class="text-sm text-gray-500 mt-1">{post.data.date?.toLocaleDateString('pt-BR')}</p>
-              <p class="text-gray-600 mt-2 line-clamp-2">{post.data.description || 'Leia mais sobre este post...'}</p>
+              <h3 class="text-xl font-black" style="color: #2C1F15;">{post.data.title}</h3>
+              <p class="text-sm mt-2" style="color: #4A3728; opacity: 0.6;">{post.data.date?.toLocaleDateString('pt-BR')}</p>
+              <p class="mt-3 line-clamp-2" style="color: #4A3728; opacity: 0.8;">{post.data.description || 'Leia mais sobre este post...'}</p>
             </div>
           </a>
         ))}
       </div>
 
       {posts.length === 0 && (
-        <p class="text-center text-gray-500 text-lg">Nenhum post publicado ainda.</p>
+        <div class="text-center py-20">
+          <div class="text-6xl mb-4">📝</div>
+          <p class="text-lg" style="color: #4A3728; opacity: 0.6;">Nenhum post publicado ainda.</p>
+          <p class="text-sm mt-2" style="color: #4A3728; opacity: 0.5;">Volte em breve para conferir novidades!</p>
+        </div>
       )}
     </div>
   </section>

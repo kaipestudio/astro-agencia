@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conceito 9: Tech Innovation Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --black: #030712;
+      --dark: #0A0F1C;
+      --dark-2: #111827;
+      --dark-3: #1F2937;
+      --white: #FFFFFF;
+      --gray-400: #9CA3AF;
+      --gray-500: #6B7280;
+      --cyan: #06B6D4;
+      --cyan-light: #22D3EE;
+      --magenta: #D946EF;
+      --green: #10B981;
+      --purple: #8B5CF6;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+    
+    /* CONCEPT BADGE */
+    .concept-badge {
+      position: fixed;
+      top: 1.5rem;
+      right: 3rem;
+      background: linear-gradient(135deg, var(--cyan), var(--magenta));
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      z-index: 200;
+    }
+    
+    /* NAV - TECH */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.25rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(3,7,18,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(6,182,212,0.2);
+    }
+    
+    .logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    
+    .logo span {
+      color: var(--cyan);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      color: var(--gray-400);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      font-family: 'JetBrains Mono', monospace;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+      color: var(--cyan);
+    }
+    
+    .nav-cta {
+      background: transparent;
+      color: var(--cyan);
+      padding: 0.75rem 1.5rem;
+      border: 1px solid var(--cyan);
+      font-size: 0.8rem;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .nav-cta:hover {
+      background: var(--cyan);
+      color: var(--black);
+      box-shadow: 0 0 30px rgba(6,182,212,0.5);
+    }
+    
+    /* HERO - TECH */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 4rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(ellipse at 20% 50%, rgba(6,182,212,0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(217,70,239,0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(16,185,129,0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(6,182,212,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(6,182,212,0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+    
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--cyan);
+      margin-bottom: 2rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid rgba(6,182,212,0.3);
+      background: rgba(6,182,212,0.1);
+    }
+    
+    .hero-badge::before {
+      content: '●';
+      color: var(--green);
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    
+    .hero h1 {
+      font-size: clamp(3.5rem, 9vw, 7rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 2rem;
+    }
+    
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--cyan), var(--magenta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--gray-400);
+      line-height: 1.8;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      font-weight: 300;
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    .btn-cyber {
+      background: linear-gradient(135deg, var(--cyan), var(--magenta));
+      color: var(--black);
+      padding: 1.125rem 2.25rem;
+      border: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+      position: relative;
+    }
+    
+    .btn-cyber::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(135deg, var(--cyan), var(--magenta));
+      z-index: -1;
+      filter: blur(15px);
+      opacity: 0.5;
+    }
+    
+    .btn-cyber:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 40px rgba(6,182,212,0.4);
+    }
+    
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      padding: 1.125rem 2.25rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .btn-ghost:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+    
+    /* STATS - TECH */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 6rem;
+      padding: 5rem 4rem;
+      border-top: 1px solid rgba(6,182,212,0.2);
+      border-bottom: 1px solid rgba(6,182,212,0.2);
+      background: rgba(10,15,28,0.5);
+    }
+    
+    .stat {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 3.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--cyan), var(--magenta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .stat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-top: 0.5rem;
+    }
+    
+    /* SERVICES - TECH */
+    .services {
+      padding: 8rem 4rem;
+      background: var(--dark);
+      position: relative;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+    
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--cyan);
+      margin-bottom: 1rem;
+    }
+    
+    .section-title {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .service-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(6,182,212,0.2);
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s;
+      cursor: pointer;
+    }
+    
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--cyan), var(--magenta));
+      transform: scaleX(0);
+      transition: transform 0.4s;
+    }
+    
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .service-card:hover {
+      background: rgba(6,182,212,0.05);
+      border-color: var(--cyan);
+      transform: translateY(-5px);
+    }
+    
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .service-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+    
+    .service-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--gray-400);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+    
+    /* PORTFOLIO - TECH */
+    .portfolio {
+      padding: 8rem 4rem;
+      background: var(--black);
+    }
+    
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+    
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid rgba(6,182,212,0.2);
+      aspect-ratio: 1;
+      transition: all 0.4s;
+    }
+    
+    .portfolio-item:nth-child(1) {
+      grid-column: span 2;
+      grid-row: span 2;
+      aspect-ratio: auto;
+    }
+    
+    .portfolio-item:hover {
+      border-color: var(--cyan);
+      box-shadow: 0 0 30px rgba(6,182,212,0.2);
+    }
+    
+    .portfolio-thumb {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      background: var(--dark-2);
+      transition: transform 0.5s;
+    }
+    
+    .portfolio-item:nth-child(1) .portfolio-thumb {
+      font-size: 8rem;
+      background: linear-gradient(135deg, var(--dark-2), var(--dark-3));
+    }
+    
+    .portfolio-item:hover .portfolio-thumb {
+      transform: scale(1.1);
+    }
+    
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent 40%, rgba(3,7,18,0.95));
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+    
+    .portfolio-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    
+    .portfolio-overlay h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    
+    /* PROCESS - TECH */
+    .process {
+      padding: 8rem 4rem;
+      background: var(--dark);
+      border-top: 1px solid rgba(6,182,212,0.2);
+    }
+    
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+    
+    .process-step {
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+    
+    .process-step::after {
+      content: '→';
+      position: absolute;
+      right: -1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      color: var(--cyan);
+    }
+    
+    .process-step:last-child::after {
+      display: none;
+    }
+    
+    .process-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--cyan), var(--magenta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+    
+    .process-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    
+    .process-desc {
+      font-size: 0.85rem;
+      color: var(--gray-400);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+    
+    /* CTA */
+    .cta {
+      padding: 8rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    
+    .cta h2 {
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    
+    .cta h2 span {
+      background: linear-gradient(135deg, var(--cyan), var(--magenta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .cta p {
+      font-size: 1.15rem;
+      color: var(--gray-400);
+      margin-bottom: 3rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 300;
+      position: relative;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      position: relative;
+    }
+    
+    /* FOOTER */
+    footer {
+      padding: 4rem;
+      background: var(--dark);
+      border-top: 1px solid rgba(6,182,212,0.2);
+    }
+    
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 3rem;
+    }
+    
+    .footer-brand {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    
+    .footer-brand span {
+      color: var(--cyan);
+    }
+    
+    .footer-tagline {
+      color: var(--gray-500);
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      max-width: 300px;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+    
+    .footer-links h4 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--cyan);
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-links a {
+      color: var(--gray-400);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--white);
+    }
+    
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(6,182,212,0.2);
+    }
+    
+    .footer-copyright {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--gray-500);
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    .footer-social a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-social a:hover {
+      color: var(--cyan);
+    }
+  </style>
+</head>
+<body>
+  <div class="concept-badge">⚡ Conceito 9: Tech Innovation Agency</div>
+  
+  <nav>
+    <div class="logo">Nex<span>us</span></div>
+    <ul class="nav-links">
+      <li><a href="#">Início</a></li>
+      <li><a href="#">Serviços</a></li>
+      <li><a href="#">Portfólio</a></li>
+      <li><a href="#">Processo</a></li>
+    </ul>
+    <a href="#" class="nav-cta">Contato →</a>
+  </nav>
+  
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">AGÊNCIA DIGITAL DE ALTA PERFORMANCE</div>
+      <h1>Criamos o <span>futuro</span> digital</h1>
+      <p>Soluções de design e desenvolvimento para empresas que querem liderar a transformação digital. Inovação, performance e excelência técnica.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn-cyber">Iniciar Projeto</a>
+        <a href="#" class="btn-ghost">Ver Casos →</a>
+      </div>
+    </div>
+  </section>
+  
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-number">300+</div>
+      <div class="stat-label">Projetos Entregues</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">99.9%</div>
+      <div class="stat-label">Uptime</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">50ms</div>
+      <div class="stat-label">Avg Response</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">24/7</div>
+      <div class="stat-label">Suporte</div>
+    </div>
+  </div>
+  
+  <section class="services">
+    <div class="section-header">
+      <div class="section-label">// SERVIÇOS</div>
+      <h2 class="section-title">Soluções digitais completas</h2>
+    </div>
+    
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🚀</div>
+        <div class="service-tag">Frontend</div>
+        <h3 class="service-title">Desenvolvimento Web</h3>
+        <p class="service-desc">Aplicações web de alta performance com as tecnologias mais avançadas do mercado.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <div class="service-tag">Design</div>
+        <h3 class="service-title">UI/UX Design</h3>
+        <p class="service-desc">Interfaces futuristas e experiências intuitivas que convertem.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <div class="service-tag">Mobile</div>
+        <h3 class="service-title">Apps Mobile</h3>
+        <p class="service-desc">Aplicativos nativos e multiplataforma com performance excepcional.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">🤖</div>
+        <div class="service-tag">AI/ML</div>
+        <h3 class="service-title">Inteligência Artificial</h3>
+        <p class="service-desc">Soluções com IA para automatizar e otimizar processos.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">☁️</div>
+        <div class="service-tag">Cloud</div>
+        <h3 class="service-title">Cloud & DevOps</h3>
+        <p class="service-desc">Infraestrutura escalável e pipelines de deploy contínuo.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <div class="service-tag">Analytics</div>
+        <h3 class="service-title">Data & Analytics</h3>
+        <p class="service-desc">Dashboards e insights baseados em dados para tomada de decisão.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="portfolio">
+    <div class="section-header">
+      <div class="section-label">// PORTFÓLIO</div>
+      <h2 class="section-title">Projetos em destaque</h2>
+    </div>
+    
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <div class="portfolio-thumb">🤖</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">AI Platform</div>
+          <h3>Plataforma de IA</h3>
+        </div>
+      </div>
+      
+      <div class="portfolio-item">
+        <div class="portfolio-thumb">💳</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">Fintech</div>
+          <h3>App Banking</h3>
+        </div>
+      </div>
+      
+      <div class="portfolio-item">
+        <div class="portfolio-thumb">🏥</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">Healthtech</div>
+          <h3>Telemedicina</h3>
+        </div>
+      </div>
+      
+      <div class="portfolio-item">
+        <div class="portfolio-thumb">🚗</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">Automotive</div>
+          <h3>Car Connect</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="process">
+    <div class="section-header">
+      <div class="section-label">// PROCESSO</div>
+      <h2 class="section-title">Como trabalhamos</h2>
+    </div>
+    
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-number">01</div>
+        <h3 class="process-title">Discovery</h3>
+        <p class="process-desc">Análise profunda do problema e oportunidades.</p>
+      </div>
+      
+      <div class="process-step">
+        <div class="process-number">02</div>
+        <h3 class="process-title">Strategy</h3>
+        <p class="process-desc">Planejamento técnico e design estratégico.</p>
+      </div>
+      
+      <div class="process-step">
+        <div class="process-number">03</div>
+        <h3 class="process-title">Build</h3>
+        <p class="process-desc">Desenvolvimento ágil com entregas incrementais.</p>
+      </div>
+      
+      <div class="process-step">
+        <div class="process-number">04</div>
+        <h3 class="process-title">Scale</h3>
+        <p class="process-desc">Otimização e escalabilidade contínua.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="cta">
+    <h2>Pronto para o <span>próximo nível</span>?</h2>
+    <p>Transforme sua visão em realidade digital com tecnologia de ponta.</p>
+    <div class="cta-buttons">
+      <a href="#" class="btn-cyber">Começar Agora</a>
+      <a href="#" class="btn-ghost">Agendar Call →</a>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Nex<span>us</span></div>
+        <p class="footer-tagline">Agência de inovação digital para empresas que lideram o futuro.</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#">Início</a></li>
+          <li><a href="#">Serviços</a></li>
+          <li><a href="#">Portfólio</a></li>
+          <li><a href="#">Sobre</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Serviços</h4>
+        <ul>
+          <li><a href="#">Web Dev</a></li>
+          <li><a href="#">UI/UX</a></li>
+          <li><a href="#">Mobile</a></li>
+          <li><a href="#">AI/ML</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="#">hello@nexus.dev</a></li>
+          <li><a href="#">São Paulo, BR</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-copyright">© 2024 Nexus. Built with ❤ and ☕</div>
+      <div class="footer-social">
+        <a href="#">GitHub</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

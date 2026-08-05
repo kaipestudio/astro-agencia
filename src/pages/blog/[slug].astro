@@ -1,35 +1,48 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: { post },
   }));
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 ---
 
-<Layout title={`${post.data.title} - Blog Kaipê Studio`}>
-  <article class="py-20 px-4 bg-white">
-    <div class="container mx-auto max-w-3xl">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">{post.data.title}</h1>
-      <p class="text-gray-500 mb-8">
+<Layout title={`${post.data.title} - Blog Kaipê Studio`} description={post.data.description || `Leia sobre ${post.data.title} no blog da Kaipê Studio.`}>
+  <!-- Hero Section -->
+  <section class="relative min-h-[40vh] flex items-center justify-end overflow-hidden pt-24 pb-12 px-6" style="background: linear-gradient(135deg, #FDF6E3 0%, #FAF3E0 100%); border-bottom: 2px solid #2C1F15;">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    
+    <div class="container mx-auto max-w-3xl relative z-10">
+      <a href="/blog" class="inline-flex items-center gap-2 text-sm mb-6 transition-colors" style="color: #4A3728; opacity: 0.6;" onmouseover="this.style.opacity='1'; this.style.color='#C75B39'" onmouseout="this.style.opacity='0.6'; this.style.color='#4A3728'">
+        ← Voltar para o Blog
+      </a>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight" style="color: #2C1F15;">{post.data.title}</h1>
+      <p class="text-sm mt-4" style="color: #4A3728; opacity: 0.6;">
         {post.data.date?.toLocaleDateString('pt-BR', { 
           day: 'numeric', 
           month: 'long', 
           year: 'numeric' 
         })}
       </p>
-      <div class="prose prose-lg prose-blue max-w-none">
+    </div>
+  </section>
+
+  <!-- Conteúdo -->
+  <article class="py-12 px-6" style="background: #FAF3E0;">
+    <div class="container mx-auto max-w-3xl">
+      <div class="prose prose-lg max-w-none" style="color: #4A3728;">
         <Content />
       </div>
-      <div class="mt-12 pt-8 border-t">
-        <a href="/blog" class="text-blue-600 hover:text-blue-800 transition">← Voltar para o Blog</a>
+      <div class="mt-12 pt-8" style="border-top: 2px solid #E8DFD0;">
+        <a href="/blog" class="gradient-text font-semibold transition-colors">← Voltar para o Blog</a>
       </div>
     </div>
   </article>

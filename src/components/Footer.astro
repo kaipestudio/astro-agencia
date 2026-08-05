@@ -2,62 +2,79 @@
 // src/components/Footer.astro
 ---
 
-<footer class="bg-gray-900 text-white py-12 px-4">
-  <div class="container mx-auto">
-    <div class="grid md:grid-cols-4 gap-8">
-      <!-- Sobre -->
+<footer class="relative py-16 px-6" style="background: #2C1F15; border-top: 2px solid #2C1F15;">
+  <div class="container mx-auto max-w-7xl">
+    <!-- Brand Section -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12 pb-8" style="border-bottom: 2px solid rgba(253,246,227,0.15);">
       <div>
-        <h3 class="text-2xl font-bold mb-4">
-          Kaipê <span class="text-blue-400">Studio</span>
+        <h3 class="text-2xl font-display font-black mb-2" style="color: #FDF6E3;">
+          Kaipê<span style="color: #C75B39;">Studio</span>
         </h3>
-        <p class="text-gray-400">
-          Transformando ideias em experiências digitais únicas desde 2024.
+        <p class="text-sm" style="color: rgba(253,246,227,0.5);">
+          Núcleo de Desenvolvimento de Jogos Digitais. Arte e tecnologia desde 2024.
         </p>
       </div>
+      <div class="flex gap-4">
+        <a href="#" class="w-10 h-10 flex items-center justify-center transition-colors" style="background: rgba(253,246,227,0.1); border: 2px solid rgba(253,246,227,0.15);" aria-label="Instagram" onmouseover="this.style.background='#C75B39'" onmouseout="this.style.background='rgba(253,246,227,0.1)'">📸</a>
+        <a href="#" class="w-10 h-10 flex items-center justify-center transition-colors" style="background: rgba(253,246,227,0.1); border: 2px solid rgba(253,246,227,0.15);" aria-label="YouTube" onmouseover="this.style.background='#C75B39'" onmouseout="this.style.background='rgba(253,246,227,0.1)'">▶️</a>
+        <a href="#" class="w-10 h-10 flex items-center justify-center transition-colors" style="background: rgba(253,246,227,0.1); border: 2px solid rgba(253,246,227,0.15);" aria-label="Twitter" onmouseover="this.style.background='#C75B39'" onmouseout="this.style.background='rgba(253,246,227,0.1)'">🐦</a>
+      </div>
+    </div>
 
-      <!-- Links Rápidos -->
+    <!-- Three Columns -->
+    <div class="grid md:grid-cols-3 gap-12">
+      <!-- Links -->
       <div>
-        <h4 class="font-semibold mb-4">Links Rápidos</h4>
-        <ul class="space-y-2 text-gray-400">
-          <li><a href="/" class="hover:text-white transition">Início</a></li>
-          <li><a href="#servicos" class="hover:text-white transition">Serviços</a></li>
-          <li><a href="#portfolio" class="hover:text-white transition">Portfólio</a></li>
-          <li><a href="#contato" class="hover:text-white transition">Contato</a></li>
+        <h4 class="text-xs font-mono font-semibold mb-6 uppercase tracking-widest" style="color: #C75B39;">Links</h4>
+        <ul class="space-y-3">
+          <li><a href="/" class="text-sm transition-colors" style="color: rgba(253,246,227,0.6);" onmouseover="this.style.color='#E07B5B'" onmouseout="this.style.color='rgba(253,246,227,0.6)'">Início</a></li>
+          <li><a href="/sobre" class="text-sm transition-colors" style="color: rgba(253,246,227,0.6);" onmouseover="this.style.color='#E07B5B'" onmouseout="this.style.color='rgba(253,246,227,0.6)'">Sobre</a></li>
+          <li><a href="/portfolio" class="text-sm transition-colors" style="color: rgba(253,246,227,0.6);" onmouseover="this.style.color='#E07B5B'" onmouseout="this.style.color='rgba(253,246,227,0.6)'">Portfólio</a></li>
+          <li><a href="/editora" class="text-sm transition-colors" style="color: rgba(253,246,227,0.6);" onmouseover="this.style.color='#E07B5B'" onmouseout="this.style.color='rgba(253,246,227,0.6)'">Editora</a></li>
+          <li><a href="/mostra" class="text-sm transition-colors" style="color: rgba(253,246,227,0.6);" onmouseover="this.style.color='#E07B5B'" onmouseout="this.style.color='rgba(253,246,227,0.6)'">Mostra</a></li>
+          <li><a href="/rede-colaborativa" class="text-sm transition-colors" style="color: rgba(253,246,227,0.6);" onmouseover="this.style.color='#E07B5B'" onmouseout="this.style.color='rgba(253,246,227,0.6)'">Game Hub</a></li>
+          <li><a href="/blog" class="text-sm transition-colors" style="color: rgba(253,246,227,0.6);" onmouseover="this.style.color='#E07B5B'" onmouseout="this.style.color='rgba(253,246,227,0.6)'">Blog</a></li>
+          <li><a href="/contato" class="text-sm transition-colors" style="color: rgba(253,246,227,0.6);" onmouseover="this.style.color='#E07B5B'" onmouseout="this.style.color='rgba(253,246,227,0.6)'">Contato</a></li>
         </ul>
       </div>
 
       <!-- Serviços -->
       <div>
-        <h4 class="font-semibold mb-4">Serviços</h4>
-        <ul class="space-y-2 text-gray-400">
-          <li>Desenvolvimento Web</li>
-          <li>UI/UX Design</li>
-          <li>Apps & SPAs</li>
-          <li>SEO & Performance</li>
+        <h4 class="text-xs font-mono font-semibold mb-6 uppercase tracking-widest" style="color: #C75B39;">Serviços</h4>
+        <ul class="space-y-3">
+          <li><a href="/servicos/jogos-digitais" class="text-sm transition-colors" style="color: rgba(253,246,227,0.6);" onmouseover="this.style.color='#E07B5B'" onmouseout="this.style.color='rgba(253,246,227,0.6)'">🎮 Jogos Digitais</a></li>
+          <li><a href="/servicos/producao-cultural" class="text-sm transition-colors" style="color: rgba(253,246,227,0.6);" onmouseover="this.style.color='#E07B5B'" onmouseout="this.style.color='rgba(253,246,227,0.6)'">🎭 Produção Cultural</a></li>
+          <li><a href="/servicos/aplicativos" class="text-sm transition-colors" style="color: rgba(253,246,227,0.6);" onmouseover="this.style.color='#E07B5B'" onmouseout="this.style.color='rgba(253,246,227,0.6)'">📱 Aplicativos</a></li>
+          <li><a href="/servicos/jogos-educacionais" class="text-sm transition-colors" style="color: rgba(253,246,227,0.6);" onmouseover="this.style.color='#E07B5B'" onmouseout="this.style.color='rgba(253,246,227,0.6)'">📚 Jogos Educacionais</a></li>
+          <li><a href="/servicos/arte-digital" class="text-sm transition-colors" style="color: rgba(253,246,227,0.6);" onmouseover="this.style.color='#E07B5B'" onmouseout="this.style.color='rgba(253,246,227,0.6)'">🎨 Arte Digital</a></li>
+          <li><a href="/servicos/oficinas" class="text-sm transition-colors" style="color: rgba(253,246,227,0.6);" onmouseover="this.style.color='#E07B5B'" onmouseout="this.style.color='rgba(253,246,227,0.6)'">🎓 Oficinas</a></li>
         </ul>
       </div>
 
-      <!-- Newsletter -->
+      <!-- Contato -->
       <div>
-        <h4 class="font-semibold mb-4">Newsletter</h4>
-        <p class="text-gray-400 mb-4">Receba novidades e dicas exclusivas</p>
-        <form class="flex gap-2">
-          <input 
-            type="email" 
-            placeholder="Seu email" 
-            class="flex-1 px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:ring-2 focus:ring-blue-400 outline-none"
-          />
-          <button type="submit" class="bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-            →
-          </button>
-        </form>
+        <h4 class="text-xs font-mono font-semibold mb-6 uppercase tracking-widest" style="color: #C75B39;">Contato</h4>
+        <ul class="space-y-4">
+          <li class="flex items-center gap-3">
+            <div class="w-10 h-10 flex items-center justify-center text-lg flex-shrink-0" style="background: rgba(199,91,57,0.2);">📧</div>
+            <a href="mailto:kaipestudio@gmail.com" class="text-sm transition-colors" style="color: rgba(253,246,227,0.6);" onmouseover="this.style.color='#E07B5B'" onmouseout="this.style.color='rgba(253,246,227,0.6)'">kaipestudio@gmail.com</a>
+          </li>
+          <li class="flex items-center gap-3">
+            <div class="w-10 h-10 flex items-center justify-center text-lg flex-shrink-0" style="background: rgba(199,91,57,0.2);">📱</div>
+            <a href="https://wa.me/556781282388" class="text-sm transition-colors" style="color: rgba(253,246,227,0.6);" onmouseover="this.style.color='#E07B5B'" onmouseout="this.style.color='rgba(253,246,227,0.6)'">(67) 8128-2388</a>
+          </li>
+          <li class="flex items-center gap-3">
+            <div class="w-10 h-10 flex items-center justify-center text-lg flex-shrink-0" style="background: rgba(199,91,57,0.2);">📍</div>
+            <span class="text-sm" style="color: rgba(253,246,227,0.6);">Dourados, MS</span>
+          </li>
+        </ul>
       </div>
     </div>
 
     <!-- Bottom -->
-    <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm text-gray-500">
-      <p>© 2024 Kaipê Studio. Todos os direitos reservados.</p>
-      <p class="mt-1">
+    <div class="mt-12 pt-8 text-center text-sm" style="border-top: 2px solid rgba(253,246,227,0.1); color: rgba(253,246,227,0.3);">
+      <p>© 2024 Kaipê Studio – Núcleo de Desenvolvimento de Jogos Digitais. Todos os direitos reservados.</p>
+      <p class="mt-2">
         Feito com ❤️ usando Astro, Tailwind e Sveltia CMS
       </p>
     </div>

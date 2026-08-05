@@ -2,93 +2,77 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Mostra Kaipê - Programação" description="Eventos e programação cultural da Kaipê Studio">
-  <section class="py-20 px-4 bg-white">
-    <div class="container mx-auto max-w-4xl">
-      <h1 class="text-4xl md:text-5xl font-bold text-center mb-6">Mostra Kaipê</h1>
-      <p class="text-center text-gray-600 text-lg mb-12">Programação cultural e eventos da Kaipê Studio</p>
-
-      <!-- 30/09 -->
-      <div class="bg-gray-50 p-6 rounded-xl mb-6 border-l-4 border-blue-500">
-        <div class="flex items-center gap-4 mb-4">
-          <span class="bg-blue-100 text-blue-800 font-bold px-4 py-2 rounded-lg">30/09</span>
-          <span class="text-gray-600">19h30</span>
+<Layout title="Mostra Kaipê - Eventos Culturais" description="Exposições de jogos, oficinas, espetáculos teatrais e eventos culturais do Coletivo K.P. em Dourados, MS.">
+  <section class="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-24 pb-16 px-6" style="background: linear-gradient(135deg, #FDF6E3 0%, #FAF3E0 100%); border-bottom: 2px solid #2C1F15;">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="container mx-auto text-center max-w-4xl relative z-10">
+      <span class="text-xs font-mono font-semibold uppercase tracking-widest" style="color: #C75B39;">Eventos</span>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black mt-3 tracking-tight" style="color: #2C1F15;">Mostra <span class="gradient-text">Kaipê</span></h1>
+      <p class="text-lg mt-6 max-w-2xl mx-auto" style="color: #4A3728; opacity: 0.8;">Programação cultural, oficinas e eventos do Coletivo K.P.</p>
+    </div>
+  </section>
+  <section class="py-16 px-6" style="background: #FAF3E0;">
+    <div class="container mx-auto max-w-5xl">
+      <div class="mb-12">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="px-4 py-2 rounded-full text-sm font-bold" style="background: rgba(92,107,79,0.2); color: #5C6B4F;">Próxima Edição</span>
         </div>
-        <h3 class="text-xl font-bold">🎭 Apresentação "Prometeu Conectado"</h3>
-        <p class="text-gray-700 mt-2">Em parceria com a Companhia NUENCENA de Teatro e UFGD</p>
-        
-        <div class="mt-4 pt-4 border-t border-gray-200">
-          <span class="text-gray-600">21h</span>
-          <h4 class="font-semibold">Mesa Redonda – "Tecnologia e Sociedade"</h4>
-          <p class="text-gray-600 text-sm mt-1">
-            Com membros do Coletivo K.P e convidados, sobre inovações tecnológicas, 
-            jogos digitais, teatro e cultura digital.
-          </p>
-          <p class="text-gray-600 text-sm mt-2">
-            <strong>Mediador:</strong> Braz Junior (FALE/UFGD)<br />
-            <strong>Debatedores:</strong> Kaio Ramos, Fernanda Pinto, Rodrigo Sanches Devigo
-          </p>
+        <div class="rounded-3xl p-8 md:p-10" style="background: #FDF6E3; border: 2px solid #2C1F15; box-shadow: 6px 6px 0 #2C1F15;">
+          <div class="flex items-center gap-4 mb-4">
+            <span class="text-5xl">🎉</span>
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-wider" style="color: #C75B39;">III Mostra Kaipê</span>
+              <h2 class="text-2xl md:text-3xl font-black" style="color: #2C1F15;">Dezembro 2026</h2>
+            </div>
+          </div>
+          <p class="text-lg mt-4" style="color: #4A3728; opacity: 0.8;">A terceira edição da Mostra Kaipê está sendo planejada para dezembro de 2026. Em breve mais informações.</p>
+          <div class="mt-6 p-4 rounded-xl" style="background: #FAF3E0; border: 2px solid #E8DFD0;">
+            <p class="text-sm" style="color: #4A3728; opacity: 0.8;">📅 <strong style="color: #2C1F15;">Quando:</strong> Dezembro de 2026<br>📍 <strong style="color: #2C1F15;">Onde:</strong> Dourados, MS</p>
+          </div>
         </div>
-        <p class="text-sm text-gray-500 mt-3">
-          📍 Local: Núcleo de Artes Cênicas da Universidade Federal da Grande Dourados – NAC/UFGD
-        </p>
       </div>
-
-      <!-- 03/10 e 04/10 -->
-      <div class="bg-gray-50 p-6 rounded-xl mb-6 border-l-4 border-purple-500">
-        <div class="flex items-center gap-4 mb-4">
-          <span class="bg-purple-100 text-purple-800 font-bold px-4 py-2 rounded-lg">03/10 e 04/10</span>
-          <span class="text-gray-600">13h – 22h</span>
+      <div class="mb-12">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="px-4 py-2 rounded-full text-sm font-bold" style="background: rgba(199,91,57,0.2); color: #C75B39;">Edição Anterior</span>
         </div>
-        <h3 class="text-xl font-bold">🎮 Exposição de Produtos e Jogos</h3>
-        <p class="text-gray-700 mt-2">
-          Livros Editados e Jogos em desenvolvimento pela Kaipê Studio na GAMETIVA 2024
-        </p>
-        <p class="text-sm text-gray-500 mt-3">
-          📍 Local: Instituto Federal de Mato Grosso do Sul, GameLab, Curso de Tecnologia em Jogos Digitais – IFMS/Dourados
-        </p>
+        <div class="rounded-3xl p-8 md:p-10" style="background: #FDF6E3; border: 2px solid #2C1F15; box-shadow: 6px 6px 0 #2C1F15;">
+          <div class="flex items-center gap-4 mb-4">
+            <span class="text-5xl">🎪</span>
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-wider" style="color: #4A3728; opacity: 0.6;">II Mostra Kaipê</span>
+              <h2 class="text-2xl md:text-3xl font-black" style="color: #2C1F15;">20 e 21 de Dezembro de 2025</h2>
+            </div>
+          </div>
+          <p class="text-lg mt-4" style="color: #4A3728; opacity: 0.8;">A segunda edição consolidou o evento como referência em cultura digital na região.</p>
+          <div class="grid md:grid-cols-2 gap-6 mt-8">
+            <div class="p-4 rounded-xl" style="background: #FAF3E0; border: 2px solid #E8DFD0;"><h3 class="font-bold mb-2" style="color: #2C1F15;">🎮 Exposição de Jogos</h3><p class="text-sm" style="color: #4A3728; opacity: 0.8;">Apresentação dos jogos desenvolvidos pela Kaipê Studio.</p></div>
+            <div class="p-4 rounded-xl" style="background: #FAF3E0; border: 2px solid #E8DFD0;"><h3 class="font-bold mb-2" style="color: #2C1F15;">📚 Lançamentos Editoriais</h3><p class="text-sm" style="color: #4A3728; opacity: 0.8;">Apresentação das publicações da Kaipê Editora.</p></div>
+            <div class="p-4 rounded-xl" style="background: #FAF3E0; border: 2px solid #E8DFD0;"><h3 class="font-bold mb-2" style="color: #2C1F15;">🎭 Espetáculos</h3><p class="text-sm" style="color: #4A3728; opacity: 0.8;">Apresentações teatrais com jogos interativos.</p></div>
+            <div class="p-4 rounded-xl" style="background: #FAF3E0; border: 2px solid #E8DFD0;"><h3 class="font-bold mb-2" style="color: #2C1F15;">🎓 Oficinas</h3><p class="text-sm" style="color: #4A3728; opacity: 0.8;">Workshops de game design e arte digital.</p></div>
+          </div>
+        </div>
       </div>
-
-      <!-- 05/10 -->
-      <div class="bg-gray-50 p-6 rounded-xl mb-6 border-l-4 border-green-500">
-        <div class="flex items-center gap-4 mb-4">
-          <span class="bg-green-100 text-green-800 font-bold px-4 py-2 rounded-lg">05/10</span>
-          <span class="text-gray-600">14h</span>
+      <div>
+        <div class="flex items-center gap-3 mb-6">
+          <span class="px-4 py-2 rounded-full text-sm font-bold" style="background: rgba(212,168,67,0.2); color: #D4A843;">Primeira Edição</span>
         </div>
-        <h3 class="text-xl font-bold">📚 Oficina de Jogos e Cultura Digital</h3>
-        <div class="mt-2 space-y-2">
-          <p class="text-gray-700"><strong>Conteúdo:</strong> A Arte e os artistas dos games. Cultura Digital hoje. Evolução dos jogos.</p>
-          <p class="text-gray-700">Conceitos básicos de design de jogos. Exemplos de mecânicas simples.</p>
+        <div class="rounded-3xl p-8 md:p-10" style="background: #FDF6E3; border: 2px solid #2C1F15; box-shadow: 6px 6px 0 #2C1F15;">
+          <div class="flex items-center gap-4 mb-4">
+            <span class="text-5xl">🚀</span>
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-wider" style="color: #4A3728; opacity: 0.6;">I Mostra Kaipê</span>
+              <h2 class="text-2xl md:text-3xl font-black" style="color: #2C1F15;">Setembro e Outubro de 2024</h2>
+            </div>
+          </div>
+          <p class="text-lg mt-4" style="color: #4A3728; opacity: 0.8;">A primeira edição foi uma série de eventos culturais em Dourados.</p>
+          <div class="grid md:grid-cols-2 gap-6 mt-8">
+            <div class="p-4 rounded-xl" style="background: #FAF3E0; border: 2px solid #E8DFD0;"><div class="flex items-center gap-2 mb-2"><span class="text-2xl">🎭</span><h3 class="font-bold" style="color: #2C1F15;">Teatro & Conversas</h3></div><p class="text-sm" style="color: #4A3728; opacity: 0.8;">Apresentação "Prometeu Conectado" na UFGD.</p><p class="text-xs mt-2" style="color: #4A3728; opacity: 0.6;">📅 30/09 • 📍 NAC/UFGD</p></div>
+            <div class="p-4 rounded-xl" style="background: #FAF3E0; border: 2px solid #E8DFD0;"><div class="flex items-center gap-2 mb-2"><span class="text-2xl">🎮</span><h3 class="font-bold" style="color: #2C1F15;">Exposição de Jogos</h3></div><p class="text-sm" style="color: #4A3728; opacity: 0.8;">Jogos apresentados na GAMETIVA 2024.</p><p class="text-xs mt-2" style="color: #4A3728; opacity: 0.6;">📅 03/10 e 04/10 • 📍 IFMS</p></div>
+            <div class="p-4 rounded-xl" style="background: #FAF3E0; border: 2px solid #E8DFD0;"><div class="flex items-center gap-2 mb-2"><span class="text-2xl">📚</span><h3 class="font-bold" style="color: #2C1F15;">Oficina de Jogos</h3></div><p class="text-sm" style="color: #4A3728; opacity: 0.8;">Workshop sobre cultura digital.</p><p class="text-xs mt-2" style="color: #4A3728; opacity: 0.6;">📅 05/10 • 📍 GEMAR</p></div>
+            <div class="p-4 rounded-xl" style="background: #FAF3E0; border: 2px solid #E8DFD0;"><div class="flex items-center gap-2 mb-2"><span class="text-2xl">🎙️</span><h3 class="font-bold" style="color: #2C1F15;">Lançamento Podcast</h3></div><p class="text-sm" style="color: #4A3728; opacity: 0.8;">Game Dev Talkies nas redes sociais.</p><p class="text-xs mt-2" style="color: #4A3728; opacity: 0.6;">📅 12/10 • 📍 Online</p></div>
+          </div>
         </div>
-        
-        <div class="mt-4 pt-4 border-t border-gray-200">
-          <span class="text-gray-600">16h30</span>
-          <h4 class="font-semibold">Apresentação de Jogos e Protótipos</h4>
-          <ul class="list-disc list-inside text-gray-700 text-sm mt-1">
-            <li>"Guia Mínimo da República dos Vermes Realistas" – Versão Beta</li>
-            <li>"Resilient Worms" – Protótipo de Game de Plataforma 2D</li>
-            <li>"Onde Está o Totoro" – Protótipo de Jogo Educativo</li>
-            <li>Outros jogos em fase de desenvolvimento</li>
-          </ul>
-        </div>
-        <p class="text-sm text-gray-500 mt-3">
-          📍 Local: Parque Rego D'Água, sede do Grupo de Escoteiros do Mar Antenor Martins – GEMAR, Dourados
-        </p>
-      </div>
-
-      <!-- 12/10 -->
-      <div class="bg-gray-50 p-6 rounded-xl border-l-4 border-orange-500">
-        <div class="flex items-center gap-4 mb-4">
-          <span class="bg-orange-100 text-orange-800 font-bold px-4 py-2 rounded-lg">12/10</span>
-          <span class="text-gray-600">14h</span>
-        </div>
-        <h3 class="text-xl font-bold">🎙️ Lançamento do Podcast</h3>
-        <p class="text-gray-700 mt-2">
-          "Game Dev Talkies – Bate-Papo com Desenvolvedores de Jogos"
-        </p>
-        <p class="text-sm text-gray-500 mt-3">
-          📍 Nas redes sociais do projeto, na internet
-        </p>
       </div>
     </div>
   </section>

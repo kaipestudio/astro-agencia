@@ -1,0 +1,361 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const services = [
+    {
+      slug: 'jogos-digitais',
+      title: 'Desenvolvimento de Jogos',
+      icon: '🎮',
+      description: 'Games para web, mobile e desktop. Visual Novels, jogos educativos, plataformas e experiências interativas.',
+      content: `
+## Nossos Jogos
+
+Desenvolvemos jogos digitais para diversas plataformas, desde Visual Novels até jogos de plataforma 2D.
+
+### Tipos de Jogos
+
+- **Visual Novels** - Histórias interativas com múltiplos finais
+- **Jogos Educacionais** - Gamificação para aprendizado
+- **Plataformas 2D** - Aventura e ação
+- **Experiências Interativas** - Arte digital imersiva
+
+### Tecnologias
+
+- **Godot Engine** - Game engine open source
+- **Unity** - Para jogos multiplataforma
+- **Phaser.js** - Para jogos web
+- **Construct** - Prototipagem rápida
+
+### Portfólio
+
+- Guia Mínimo da República dos Vermes Realistas (2024)
+- Resilient Worms (em desenvolvimento)
+- Totoro's Adventure (em desenvolvimento)
+
+### Processo
+
+1. **Conceito** - Ideação e design do jogo
+2. **Prototipagem** - Versão jogável inicial
+3. **Produção** - Arte, áudio e programação
+4. **Testes** - Playtests e ajustes
+5. **Lançamento** - Publicação nas plataformas
+
+---
+
+*Entre em contato para discutir seu projeto de jogo.*`
+    },
+    {
+      slug: 'producao-cultural',
+      title: 'Produção Cultural',
+      icon: '🎭',
+      description: 'Teatro, literatura, quadrinhos, exposições e eventos culturais que integram tecnologia e arte.',
+      content: `
+## Nossa Produção Cultural
+
+Integramos tecnologia e arte cênica para criar experiências culturais inovadoras.
+
+### Áreas de Atuação
+
+- **Teatro** - Espetáculos com interatividade digital
+- **Quadrinhos** - Webtirinhas e publicações
+- **Exposições** - Arte digital interativa
+- **Eventos** - Festivais e mostras culturais
+
+### Projetos em Destaque
+
+- **Prometeu Conectado** - Teatro + Games interativos
+- **Vermes Realistas** - Webtirinhas humorísticas
+- **Mostra Kaipê** - Eventos culturais
+
+### Parcerias
+
+- Companhia NUENCENA de Teatro
+- Universidade Federal da Grande Dourados (UFGD)
+- Instituto Federal de Mato Grosso do Sul (IFMS)
+
+### Impacto
+
+Nossos projetos culturais alcançam comunidades locais e promovem a democratização do acesso à arte e tecnologia.
+
+---
+
+*Colaboramos com artistas e instituições para criar produções culturais inovadoras.*`
+    },
+    {
+      slug: 'aplicativos',
+      title: 'Aplicativos Interativos',
+      icon: '📱',
+      description: 'Apps para web, mobile e desktop. Ferramentas educativas, apps culturais e experiências imersivas.',
+      content: `
+## Nossos Aplicativos
+
+Desenvolvemos aplicativos interativos para diversas plataformas e finalidades.
+
+### Plataformas
+
+- **Web** - Aplicações web progressivas (PWA)
+- **Mobile** - Apps para Android e iOS
+- **Desktop** - Aplicativos para computadores
+
+### Tipos de Aplicativos
+
+- **Educacionais** - Ferramentas de aprendizado
+- **Culturais** - Apps para eventos e exposições
+- **Interativos** - Experiências imersivas
+- **Utilitários** - Soluções para problemas específicos
+
+### Tecnologias
+
+- **React Native** - Apps mobile cross-platform
+- **Electron** - Apps desktop com web technologies
+- **Astro** - Sites e PWAs
+- **Flutter** - Apps mobile nativos
+
+### Processo
+
+1. **Pesquisa** - Entendimento das necessidades
+2. **Design** - UI/UX e prototipagem
+3. **Desenvolvimento** - Código e integrações
+4. **Testes** - QA e usabilidade
+5. **Lançamento** - Publicação nas lojas
+
+---
+
+*Entre em contato para desenvolver seu aplicativo.*`
+    },
+    {
+      slug: 'jogos-educacionais',
+      title: 'Jogos Educacionais',
+      icon: '📚',
+      description: 'Gamificação e jogos de tabuleiro para educação. Oficinas e workshops sobre cultura digital.',
+      content: `
+## Jogos para Educação
+
+Utilizamos gamificação e game design para criar experiências educacionais envolventes.
+
+### Abordagens
+
+- **Gamificação** - Elementos de jogo em contextos educacionais
+- **Jogos de Tabuleiro** - Protótipos físicos para aprendizado
+- **Jogos Digitais** - Apps educativos interativos
+- **Oficinas** - Workshops práticos
+
+### Áreas Temáticas
+
+- **Ciências** - Biologia, física, química
+- **Linguagens** - Português, literatura, redação
+- **Matemática** - Lógica, cálculo, geometria
+- **História e Cultura** - Patrimônio, tradições
+
+### Projetos
+
+- **Jogo da Bagunça Pet** - Jogo de tabuleiro educativo
+- **Onde Está o Totoro** - Jogo educativo (em desenvolvimento)
+- **Oficinas de Cultura Digital** - Workshops para comunidades
+
+### Metodologia
+
+1. **Diagnóstico** - Identificação das necessidades
+2. **Design Educacional** - Objetivos de aprendizagem
+3. **Game Design** - Mecânicas e narrativa
+4. **Produção** - Arte e programação
+5. **Validação** - Testes com público-alvo
+
+---
+
+*Desenvolvemos soluções gamificadas para educação.*`
+    },
+    {
+      slug: 'arte-digital',
+      title: 'Arte Digital & Ilustração',
+      icon: '🎨',
+      description: 'Quadrinhos, webtirinhas, ilustrações e arte digital interativa para projetos culturais.',
+      content: `
+## Nossa Arte Digital
+
+Criamos arte digital e ilustrações para projetos culturais, games e mídias digitais.
+
+### Estilos
+
+- **Ilustração Digital** - Arte para web e impressão
+- **Quadrinhos** - Histórias em quadrinhos e webtirinhas
+- **Arte Conceitual** - Conceitos para jogos e projetos
+- **Arte Interativa** - Experiências digitais imersivas
+
+### Ferramentas
+
+- **Krita** - Pintura digital open source
+- **Aseprite** - Pixel art e animação
+- **Inkscape** - Vetorização e ilustração
+- **Blender** - Modelagem 3D
+
+### Portfólio
+
+- **Vermes Realistas** - Webtirinhas humorísticas
+- **Arte para Jogos** - Sprites e cenários
+- **Ilustrações Culturais** - Para eventos e exposições
+
+### Processo
+
+1. **Briefing** - Entendimento do projeto
+2. **Referências** - Pesquisa visual
+3. **Rascunho** - Conceitos e esboços
+4. **Produção** - Arte final e detalhes
+5. **Entrega** - Arquivos em diversos formatos
+
+---
+
+*Criamos arte digital para projetos de todas as escalas.*`
+    },
+    {
+      slug: 'oficinas',
+      title: 'Oficinas & Workshops',
+      icon: '🎓',
+      description: 'Oficinas de jogos, produção audiovisual, cultura digital e capacitação para comunidades.',
+      content: `
+## Nossas Oficinas
+
+Promovemos oficinas e workshops para capacitação em cultura digital e produção artística.
+
+### Temáticas
+
+- **Jogos Digitais** - Introdução ao game design
+- **Produção Audiovisual** - Video-making e edição
+- **Cultura Digital** - Literacia digital e mídias
+- **Arte Digital** - Ilustração e design
+
+### Público-Alvo
+
+- **Jovens** - Estudantes do ensino fundamental e médio
+- **Comunidades** - Grupos organizados e coletivos
+- **Educadores** - Professores e facilitadores
+- **Artistas** - Criadores independentes
+
+### Metodologia
+
+1. **Planejamento** - Definição de objetivos e conteúdo
+2. **Execução** - Aulas práticas e teóricas
+3. **Produção** - Criação de projetos pelos participantes
+4. **Exposição** - Apresentação dos trabalhos
+5. **Avaliação** - Feedback e encerramento
+
+### Experiências
+
+- **Videoefa** - Oficinas de vídeo-documentário em escolas rurais
+- **Oficina de Jogos** - Oficinas de game design
+- **Cultura Digital** - Workshops sobre mídias digitais
+
+---
+
+*Entre em contato para agendar uma oficina.*`
+    }
+  ];
+
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+---
+
+<Layout title={`${service.title} - Kaipê Studio`} description={service.description}>
+  <!-- Hero Section -->
+  <section class="relative min-h-[60vh] flex items-end overflow-hidden pt-24 pb-12 px-6" style="background: linear-gradient(135deg, #FDF6E3 0%, #FAF3E0 100%); border-bottom: 2px solid #2C1F15;">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    
+    <div class="container mx-auto max-w-4xl relative z-10">
+      <a href="/sobre" class="inline-flex items-center gap-2 text-sm mb-6 transition-colors" style="color: #4A3728; opacity: 0.6;" onmouseover="this.style.opacity='1'; this.style.color='#C75B39'" onmouseout="this.style.opacity='0.6'; this.style.color='#4A3728'">
+        ← Voltar aos Serviços
+      </a>
+      
+      <div class="flex items-center gap-4 mb-4">
+        <span class="text-6xl">{service.icon}</span>
+      </div>
+      
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight" style="color: #2C1F15;">{service.title}</h1>
+      <p class="text-lg mt-4 max-w-2xl" style="color: #4A3728; opacity: 0.8;">
+        {service.description}
+      </p>
+    </div>
+  </section>
+
+  <!-- Conteúdo -->
+  <article class="py-12 px-6" style="background: #FAF3E0;">
+    <div class="container mx-auto max-w-3xl">
+      <div class="prose prose-lg max-w-none" style="color: #4A3728;">
+        <Fragment set:html={service.content.replace(/\n/g, '<br>')} />
+      </div>
+      
+      <!-- CTA -->
+      <div class="mt-12 p-8 rounded-3xl text-center" style="background: #FDF6E3; border: 2px solid #2C1F15; box-shadow: 6px 6px 0 #2C1F15;">
+        <h3 class="text-xl font-black mb-4" style="color: #2C1F15;">Interessado neste serviço?</h3>
+        <p class="mb-6" style="color: #4A3728; opacity: 0.8;">Entre em contato para discutir seu projeto.</p>
+        <a href="/contato" class="btn-glow inline-block px-8 py-3">
+          Fale Conosco
+        </a>
+      </div>
+      
+      <!-- Navegação -->
+      <div class="mt-12 pt-8" style="border-top: 2px solid #E8DFD0;">
+        <a href="/sobre" class="gradient-text font-semibold transition-colors">
+          ← Voltar aos Serviços
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Outros Serviços -->
+  <section class="py-16 px-6" style="background: #FDF6E3; border-top: 2px solid #2C1F15;">
+    <div class="container mx-auto max-w-5xl">
+      <h2 class="text-2xl font-black mb-8" style="color: #2C1F15;">Outros Serviços</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/servicos/jogos-digitais" class="service-item p-5 flex gap-4 items-start block" style="background: #FAF3E0; border: 2px solid #2C1F15; box-shadow: 4px 4px 0 #2C1F15;">
+          <div class="w-12 h-12 flex items-center justify-center flex-shrink-0 text-xl" style="background: rgba(199,91,57,0.15);">🎮</div>
+          <div>
+            <h3 class="font-bold mb-1" style="color: #2C1F15;">Desenvolvimento de Jogos</h3>
+            <p class="text-xs" style="color: #4A3728; opacity: 0.8;">Games para web, mobile e desktop</p>
+          </div>
+        </a>
+        <a href="/servicos/producao-cultural" class="service-item p-5 flex gap-4 items-start block" style="background: #FAF3E0; border: 2px solid #2C1F15; box-shadow: 4px 4px 0 #2C1F15;">
+          <div class="w-12 h-12 flex items-center justify-center flex-shrink-0 text-xl" style="background: rgba(92,107,79,0.15);">🎭</div>
+          <div>
+            <h3 class="font-bold mb-1" style="color: #2C1F15;">Produção Cultural</h3>
+            <p class="text-xs" style="color: #4A3728; opacity: 0.8;">Teatro, literatura e eventos culturais</p>
+          </div>
+        </a>
+        <a href="/servicos/aplicativos" class="service-item p-5 flex gap-4 items-start block" style="background: #FAF3E0; border: 2px solid #2C1F15; box-shadow: 4px 4px 0 #2C1F15;">
+          <div class="w-12 h-12 flex items-center justify-center flex-shrink-0 text-xl" style="background: rgba(212,168,67,0.15);">📱</div>
+          <div>
+            <h3 class="font-bold mb-1" style="color: #2C1F15;">Aplicativos Interativos</h3>
+            <p class="text-xs" style="color: #4A3728; opacity: 0.8;">Apps para web, mobile e desktop</p>
+          </div>
+        </a>
+        <a href="/servicos/jogos-educacionais" class="service-item p-5 flex gap-4 items-start block" style="background: #FAF3E0; border: 2px solid #2C1F15; box-shadow: 4px 4px 0 #2C1F15;">
+          <div class="w-12 h-12 flex items-center justify-center flex-shrink-0 text-xl" style="background: rgba(199,91,57,0.15);">📚</div>
+          <div>
+            <h3 class="font-bold mb-1" style="color: #2C1F15;">Jogos Educacionais</h3>
+            <p class="text-xs" style="color: #4A3728; opacity: 0.8;">Gamificação e jogos para educação</p>
+          </div>
+        </a>
+        <a href="/servicos/arte-digital" class="service-item p-5 flex gap-4 items-start block" style="background: #FAF3E0; border: 2px solid #2C1F15; box-shadow: 4px 4px 0 #2C1F15;">
+          <div class="w-12 h-12 flex items-center justify-center flex-shrink-0 text-xl" style="background: rgba(92,107,79,0.15);">🎨</div>
+          <div>
+            <h3 class="font-bold mb-1" style="color: #2C1F15;">Arte Digital & Ilustração</h3>
+            <p class="text-xs" style="color: #4A3728; opacity: 0.8;">Quadrinhos, webtirinhas e arte interativa</p>
+          </div>
+        </a>
+        <a href="/servicos/oficinas" class="service-item p-5 flex gap-4 items-start block" style="background: #FAF3E0; border: 2px solid #2C1F15; box-shadow: 4px 4px 0 #2C1F15;">
+          <div class="w-12 h-12 flex items-center justify-center flex-shrink-0 text-xl" style="background: rgba(212,168,67,0.15);">🎓</div>
+          <div>
+            <h3 class="font-bold mb-1" style="color: #2C1F15;">Oficinas & Workshops</h3>
+            <p class="text-xs" style="color: #4A3728; opacity: 0.8;">Capacitação em cultura digital</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

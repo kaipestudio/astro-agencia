@@ -6,13 +6,32 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#2563EB',
-        secondary: '#7C3AED',
+        cream: '#FDF6E3',
+        'warm-white': '#FAF3E0',
+        sand: '#E8DFD0',
+        terracotta: {
+          DEFAULT: '#C75B39',
+          light: '#E07B5B',
+        },
+        olive: {
+          DEFAULT: '#5C6B4F',
+          light: '#7A8B6A',
+        },
+        mustard: '#D4A843',
+        brown: '#4A3728',
+        'dark-brown': '#2C1F15',
+        'off-white': '#F5EDE0',
+        primary: '#C75B39',
+        secondary: '#5C6B4F',
       },
       fontFamily: {
-        sans: ['Inter Variable', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        display: ['Playfair Display', ...defaultTheme.fontFamily.serif],
+        mono: ['Space Mono', ...defaultTheme.fontFamily.mono],
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }

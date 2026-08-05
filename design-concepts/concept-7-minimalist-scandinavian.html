@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conceito 7: Minimalist Scandinavian</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --white: #FFFFFF;
+      --off-white: #FAFAF8;
+      --warm-gray: #E8E6E3;
+      --medium-gray: #9C9A96;
+      --dark-gray: #3D3D3D;
+      --black: #1A1A1A;
+      --accent: #C4A77D;
+      --accent-light: #D4BC9A;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--off-white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+    
+    /* CONCEPT BADGE */
+    .concept-badge {
+      position: fixed;
+      top: 1.5rem;
+      right: 3rem;
+      background: var(--black);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      z-index: 200;
+    }
+    
+    /* NAV - MINIMAL */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      color: var(--dark-gray);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 400;
+      transition: color 0.3s;
+      letter-spacing: 0.02em;
+    }
+    
+    .nav-links a:hover {
+      color: var(--black);
+    }
+    
+    .nav-cta {
+      color: var(--black);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.75rem 1.5rem;
+      border: 1px solid var(--black);
+      border-radius: 100px;
+      transition: all 0.3s;
+    }
+    
+    .nav-cta:hover {
+      background: var(--black);
+      color: white;
+    }
+    
+    /* HERO - MINIMAL */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 4rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .hero-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+    
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3.5rem, 8vw, 6rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+      max-width: 800px;
+    }
+    
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--medium-gray);
+      line-height: 1.8;
+      margin-bottom: 3rem;
+      max-width: 500px;
+      font-weight: 300;
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    
+    .btn-primary {
+      background: var(--black);
+      color: white;
+      padding: 1.125rem 2.25rem;
+      border: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 100px;
+      transition: all 0.3s;
+    }
+    
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+    
+    .btn-link {
+      color: var(--black);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap 0.3s;
+    }
+    
+    .btn-link:hover {
+      gap: 0.75rem;
+    }
+    
+    /* DIVIDER */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--warm-gray);
+    }
+    
+    /* ABOUT */
+    .about {
+      padding: 8rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .about-left {
+      position: sticky;
+      top: 8rem;
+      align-self: start;
+    }
+    
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.2;
+    }
+    
+    .about-right {
+      padding-top: 1rem;
+    }
+    
+    .about-text {
+      font-size: 1.1rem;
+      color: var(--dark-gray);
+      line-height: 1.9;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+    
+    .about-values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .value-item h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .value-item p {
+      font-size: 0.85rem;
+      color: var(--medium-gray);
+      line-height: 1.6;
+    }
+    
+    /* SERVICES */
+    .services {
+      padding: 8rem 4rem;
+      background: var(--white);
+    }
+    
+    .services-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+    }
+    
+    .section-link {
+      color: var(--black);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap 0.3s;
+    }
+    
+    .section-link:hover {
+      gap: 0.75rem;
+    }
+    
+    .services-list {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .service-item {
+      display: grid;
+      grid-template-columns: 60px 1fr auto;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--warm-gray);
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .service-item:first-child {
+      border-top: 1px solid var(--warm-gray);
+    }
+    
+    .service-item:hover {
+      padding-left: 1rem;
+    }
+    
+    .service-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--accent);
+    }
+    
+    .service-content h3 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    
+    .service-content p {
+      font-size: 0.9rem;
+      color: var(--medium-gray);
+      font-weight: 300;
+    }
+    
+    .service-arrow {
+      font-size: 1.5rem;
+      color: var(--medium-gray);
+      transition: all 0.3s;
+    }
+    
+    .service-item:hover .service-arrow {
+      color: var(--black);
+      transform: translateX(5px);
+    }
+    
+    /* PORTFOLIO */
+    .portfolio {
+      padding: 8rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+    
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    
+    .portfolio-item:first-child {
+      grid-column: span 2;
+    }
+    
+    .portfolio-thumb {
+      width: 100%;
+      aspect-ratio: 16/10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .portfolio-item:first-child .portfolio-thumb {
+      aspect-ratio: 2/1;
+      font-size: 8rem;
+    }
+    
+    .portfolio-item:nth-child(1) .portfolio-thumb {
+      background: var(--warm-gray);
+    }
+    
+    .portfolio-item:nth-child(2) .portfolio-thumb {
+      background: var(--dark-gray);
+    }
+    
+    .portfolio-item:nth-child(3) .portfolio-thumb {
+      background: var(--accent-light);
+    }
+    
+    .portfolio-item:hover .portfolio-thumb {
+      transform: scale(1.03);
+    }
+    
+    .portfolio-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.6));
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    
+    .portfolio-item:hover .portfolio-info {
+      opacity: 1;
+    }
+    
+    .portfolio-info h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: white;
+      margin-bottom: 0.25rem;
+    }
+    
+    .portfolio-info p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.8);
+    }
+    
+    /* TESTIMONIAL */
+    .testimonial {
+      padding: 8rem 4rem;
+      background: var(--white);
+      text-align: center;
+    }
+    
+    .testimonial-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .testimonial-quote {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      line-height: 1.4;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .testimonial-name {
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    
+    .testimonial-role {
+      font-size: 0.85rem;
+      color: var(--medium-gray);
+    }
+    
+    /* CTA */
+    .cta {
+      padding: 8rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .cta-content {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      padding: 4rem;
+      background: var(--black);
+      color: white;
+      border-radius: 2rem;
+    }
+    
+    .cta h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    
+    .cta p {
+      color: var(--medium-gray);
+      font-size: 1rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .btn-white {
+      background: white;
+      color: var(--black);
+      padding: 1.125rem 2.25rem;
+      border: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 100px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    
+    .btn-white:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline-white {
+      background: transparent;
+      color: white;
+      padding: 1.125rem 2.25rem;
+      border: 1px solid rgba(255,255,255,0.3);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 100px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    
+    .btn-outline-white:hover {
+      border-color: white;
+    }
+    
+    /* FOOTER */
+    footer {
+      padding: 4rem;
+      border-top: 1px solid var(--warm-gray);
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
+    }
+    
+    .footer-brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-tagline {
+      color: var(--medium-gray);
+      font-size: 0.9rem;
+      max-width: 280px;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+    
+    .footer-links h4 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--medium-gray);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-links a {
+      color: var(--dark-gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+      font-weight: 400;
+    }
+    
+    .footer-links a:hover {
+      color: var(--black);
+    }
+    
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 3rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid var(--warm-gray);
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--medium-gray);
+    }
+  </style>
+</head>
+<body>
+  <div class="concept-badge">🌿 Conceito 7: Minimalist Scandinavian</div>
+  
+  <nav>
+    <div class="logo">Studio Nord</div>
+    <ul class="nav-links">
+      <li><a href="#">Sobre</a></li>
+      <li><a href="#">Serviços</a></li>
+      <li><a href="#">Portfólio</a></li>
+      <li><a href="#">Contato</a></li>
+    </ul>
+    <a href="#" class="nav-cta">Fale Conosco</a>
+  </nav>
+  
+  <section class="hero">
+    <div class="hero-label">Agência de Design</div>
+    <h1>Design que comunica com simplicidade</h1>
+    <p>Criamos experiências visuais limpas e funcionais para marcas que valorizam a essência e a clareza na comunicação.</p>
+    <div class="hero-cta">
+      <a href="#" class="btn-primary">Ver Projetos</a>
+      <a href="#" class="btn-link">Saiba mais →</a>
+    </div>
+  </section>
+  
+  <div class="divider"></div>
+  
+  <section class="about">
+    <div class="about-left">
+      <div class="section-label">Sobre Nós</div>
+      <h2 class="section-title">Simplicidade é a sofisticação suprema</h2>
+    </div>
+    <div class="about-right">
+      <p class="about-text">Acreditamos que o bom design está na remoção do desnecessário. Cada elemento tem um propósito, cada espaço respira, cada detalhe foi pensado.</p>
+      <p class="about-text">Trabalhamos com marcas que compartilham nossa filosofia de clareza, funcionalidade e beleza atemporal.</p>
+      
+      <div class="about-values">
+        <div class="value-item">
+          <h4>Claridade</h4>
+          <p>Comunicação direta e sem ruído visual.</p>
+        </div>
+        <div class="value-item">
+          <h4>Funcionalidade</h4>
+          <p>Design que resolve problemas reais.</p>
+        </div>
+        <div class="value-item">
+          <h4>Atemporalidade</h4>
+          <p>Soluções que não envelhecem.</p>
+        </div>
+        <div class="value-item">
+          <h4>Qualidade</h4>
+          <p>Atenção obsessiva aos detalhes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="services">
+    <div class="services-container">
+      <div class="section-header">
+        <div>
+          <div class="section-label">Serviços</div>
+          <h2 class="section-title">O que fazemos</h2>
+        </div>
+        <a href="#" class="section-link">Ver todos →</a>
+      </div>
+      
+      <div class="services-list">
+        <div class="service-item">
+          <div class="service-number">01</div>
+          <div class="service-content">
+            <h3>Branding</h3>
+            <p>Identidades visuais que comunicam a essência da marca.</p>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+        
+        <div class="service-item">
+          <div class="service-number">02</div>
+          <div class="service-content">
+            <h3>Web Design</h3>
+            <p>Sites minimalistas com foco na experiência do usuário.</p>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+        
+        <div class="service-item">
+          <div class="service-number">03</div>
+          <div class="service-content">
+            <h3>Editorial Design</h3>
+            <p>Publicações e materiais impressos com tipografia refinada.</p>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+        
+        <div class="service-item">
+          <div class="service-number">04</div>
+          <div class="service-content">
+            <h3>Direção de Arte</h3>
+            <p>Conceitos visuais para campanhas e projetos especiais.</p>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+        
+        <div class="service-item">
+          <div class="service-number">05</div>
+          <div class="service-content">
+            <h3>Consultoria Visual</h3>
+            <p>Estratégia e orientação para marcas em transição.</p>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="portfolio">
+    <div class="section-header">
+      <div>
+        <div class="section-label">Portfólio</div>
+        <h2 class="section-title">Trabalhos selecionados</h2>
+      </div>
+      <a href="#" class="section-link">Ver todos →</a>
+    </div>
+    
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <div class="portfolio-thumb">🏠</div>
+        <div class="portfolio-info">
+          <h3>Arquitetura Minimalista</h3>
+          <p>Branding & Web Design</p>
+        </div>
+      </div>
+      
+      <div class="portfolio-item">
+        <div class="portfolio-thumb">☕</div>
+        <div class="portfolio-info">
+          <h3>Café Especial</h3>
+          <p>Identidade Visual</p>
+        </div>
+      </div>
+      
+      <div class="portfolio-item">
+        <div class="portfolio-thumb">📚</div>
+        <div class="portfolio-info">
+          <h3>Editora Independente</h3>
+          <p>Editorial Design</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="testimonial">
+    <div class="testimonial-container">
+      <p class="testimonial-quote">"A equipe entendeu perfeitamente nossa visão de simplicidade. O resultado é exatamente o que precisávamos: limpo, elegante e funcional."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-name">Erik Johansson</div>
+        <div class="testimonial-role">CEO, Nordic Design Co.</div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="cta">
+    <div class="cta-content">
+      <div>
+        <h2>Vamos criar algo simples e memorável?</h2>
+        <p>Comece uma conversa sobre como podemos simplificar e fortalecer a comunicação da sua marca.</p>
+      </div>
+      <div class="cta-buttons">
+        <a href="#" class="btn-white">Iniciar Projeto</a>
+        <a href="#" class="btn-outline-white">Agendar Reunião</a>
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="footer-content">
+      <div>
+        <div class="footer-brand">Studio Nord</div>
+        <p class="footer-tagline">Design minimalista para marcas que valorizam a essência.</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Equipe</a></li>
+          <li><a href="#">Carreiras</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Serviços</h4>
+        <ul>
+          <li><a href="#">Branding</a></li>
+          <li><a href="#">Web Design</a></li>
+          <li><a href="#">Editorial</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="#">hello@studionord.com</a></li>
+          <li><a href="#">São Paulo, Brasil</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div>© 2024 Studio Nord. Todos os direitos reservados.</div>
+      <div>Instagram · Behance · LinkedIn</div>
+    </div>
+  </footer>
+</body>
+</html>
