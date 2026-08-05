@@ -10,8 +10,8 @@ export interface Props {
 }
 
 const { 
-  title = "Kaipê Studio - Núcleo de Desenvolvimento de Jogos Digitais", 
-  description = "Desenvolvemos jogos digitais, produções culturais e experiências interativas que conectam arte e tecnologia.",
+  title = "Kaipê Studio — Cultura Digital, Jogos e Produção Cultural", 
+  description = "Kaipê Studio: editora, produtora cultural e estúdio de game design. Publicamos livros, produzimos espetáculos, oficinas e mostras de arte digital, e desenvolvemos jogos educativos, narrativas interativas e experiências de gamificação.",
   image = '/og-default.png'
 } = Astro.props;
 
@@ -34,6 +34,7 @@ const imageURL = new URL(image, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:image" content={imageURL} />
     <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Kaipê Studio" />
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -45,7 +46,10 @@ const imageURL = new URL(image, Astro.site);
     <!-- Canonical -->
     <link rel="canonical" href={canonicalURL} />
     
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />

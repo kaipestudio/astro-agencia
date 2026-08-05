@@ -1,0 +1,102 @@
+---
+// src/pages/404.astro
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Página não encontrada — Kaipê Studio"
+  description="Ops! A página que você está procurando não foi encontrada. Volte para o início e conheça nossos projetos."
+>
+  <section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden px-6" style="background: linear-gradient(135deg, #FDF6E3 0%, #FAF3E0 100%); border-bottom: 2px solid #2C1F15;">
+    <!-- Floating Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="container mx-auto text-center max-w-3xl relative z-10 py-16">
+      <!-- Número 404 -->
+      <div class="relative inline-block">
+        <span class="text-8xl md:text-9xl font-display font-black tracking-tight" style="color: #2C1F15;">404</span>
+        <span class="absolute -top-4 -right-8 text-6xl" style="animation: float 3s ease-in-out infinite;">🎮</span>
+      </div>
+
+      <!-- Mensagem -->
+      <h1 class="text-3xl md:text-4xl font-display font-black mt-4" style="color: #2C1F15;">
+        Página <span class="gradient-text">não encontrada</span>
+      </h1>
+      
+      <p class="text-lg md:text-xl mt-6 max-w-2xl mx-auto leading-relaxed" style="color: #4A3728; opacity: 0.8;">
+        Oops! A página que você procura não existe ou foi movida para outro endereço.
+      </p>
+
+      <!-- Links rápidos -->
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <span class="text-sm" style="color: #4A3728; opacity: 0.6;">Você pode tentar:</span>
+        <a href="/" class="text-sm font-medium transition-colors" style="color: #C75B39;" onmouseover="this.style.color='#E07B5B'" onmouseout="this.style.color='#C75B39'">Início</a>
+        <span style="color: #4A3728; opacity: 0.3;">•</span>
+        <a href="/portfolio" class="text-sm font-medium transition-colors" style="color: #C75B39;" onmouseover="this.style.color='#E07B5B'" onmouseout="this.style.color='#C75B39'">Portfólio</a>
+        <span style="color: #4A3728; opacity: 0.3;">•</span>
+        <a href="/editora" class="text-sm font-medium transition-colors" style="color: #C75B39;" onmouseover="this.style.color='#E07B5B'" onmouseout="this.style.color='#C75B39'">Editora</a>
+        <span style="color: #4A3728; opacity: 0.3;">•</span>
+        <a href="/blog" class="text-sm font-medium transition-colors" style="color: #C75B39;" onmouseover="this.style.color='#E07B5B'" onmouseout="this.style.color='#C75B39'">Blog</a>
+      </div>
+
+      <!-- Botão principal -->
+      <div class="mt-10">
+        <a href="/" class="btn-glow inline-block px-8 py-4">
+          ← Voltar para o Início
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Estilos para as orbs flutuantes */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  
+  .orb-1 {
+    width: 300px;
+    height: 300px;
+    top: -80px;
+    right: -80px;
+    background: #C75B39;
+    animation: floatOrb 8s ease-in-out infinite;
+  }
+  
+  .orb-2 {
+    width: 200px;
+    height: 200px;
+    bottom: -60px;
+    left: -60px;
+    background: #5C6B4F;
+    animation: floatOrb 10s ease-in-out infinite reverse;
+  }
+  
+  .orb-3 {
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #D4A843;
+    animation: floatOrb 6s ease-in-out infinite 1s;
+  }
+
+  @keyframes floatOrb {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(20px, -20px) scale(1.1); }
+    66% { transform: translate(-20px, 10px) scale(0.9); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+</style>

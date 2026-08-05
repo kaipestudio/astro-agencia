@@ -1,13 +1,16 @@
 ---
+// src/pages/quem-somos.astro
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Sobre - Kaipê Studio" description="Conheça o Coletivo K.P. de Artistas Digitais de Dourados: Maria Fernanda, Fernanda Pinto e Braz Pinto Jr. História desde 2016.">
+<Layout 
+  title="Quem Somos — Kaipê Studio"
+  description="Conheça o Coletivo K.P. de Artistas Digitais de Dourados. Fundado em 2016 por Maria Fernanda Kozlowski, Fernanda Pinto e Braz Pinto Jr. Atuação em jogos educativos, cultura digital, editora, produção cultural e experiências interativas."
+>
   <!-- Hero Section -->
   <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-24 pb-16 px-6" style="background: linear-gradient(135deg, #FDF6E3 0%, #FAF3E0 100%); border-bottom: 2px solid #2C1F15;">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
-    
     <div class="container mx-auto text-center max-w-4xl relative z-10">
       <span class="text-xs font-mono font-semibold uppercase tracking-widest" style="color: #C75B39;">Nossa História</span>
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-black mt-3 tracking-tight" style="color: #2C1F15;">
@@ -24,7 +27,6 @@ import Layout from '../layouts/Layout.astro';
     <div class="container mx-auto max-w-4xl">
       <div class="rounded-3xl p-8 md:p-12 bg-card border-subtle">
         <h2 class="text-2xl font-black mb-6" style="color: #2C1F15;">Histórico do Grupo</h2>
-        
         <div class="space-y-6 leading-relaxed" style="color: #4A3728;">
           <p>
             O <strong style="color: #2C1F15;">Coletivo K.P. de Artistas Digitais de Dourados</strong> surgiu em 2016 
@@ -33,23 +35,19 @@ import Layout from '../layouts/Layout.astro';
             <strong style="color: #2C1F15;">Fernanda Pinto</strong>, psicóloga e designer de produtos personalizados, e 
             <strong style="color: #2C1F15;">Braz Pinto Junior</strong>, dramaturgo, professor universitário e entusiasta de programação.
           </p>
-          
           <p>
             Desde 2018 o coletivo é responsável pela publicação da tirinha digital <strong style="color: #2C1F15;">"Vermes Realistas"</strong>, 
             uma produção independente que mistura filosofia, ciência e entretenimento, produzida para o público das redes sociais.
           </p>
-          
           <p>
             Em 2021, os artistas do coletivo iniciaram uma pesquisa com gamificação e produção de jogos educacionais de tabuleiro, 
             criando o protótipo do jogo de tabuleiro <strong style="color: #2C1F15;">"Jogo da Bagunça Pet"</strong>, um jogo inspirado no modelo tradicional dos jogos de investigação e RPG.
           </p>
-          
           <p>
             A partir de 2022, o grupo iniciou seus primeiros testes com a produção de aplicativos interativos para web e celulares, 
             além de realizar experimentações com frameworks específicos para desenvolvimento de jogos de plataforma, Visual Novels, 
             ambientes virtuais e arte digital interativa.
           </p>
-          
           <p>
             Em janeiro de 2024, com criação do <strong style="color: #2C1F15;">Núcleo de Desenvolvimento de Jogos Digitais – Kaipê Studio</strong>, 
             foi possível a ampliação das pesquisas desenvolvidas pelo coletivo e do alcance dos projetos realizados, 
@@ -67,7 +65,6 @@ import Layout from '../layouts/Layout.astro';
         <span class="text-xs font-mono font-semibold uppercase tracking-widest" style="color: #C75B39;">Equipe</span>
         <h2 class="text-3xl md:text-4xl font-black mt-3" style="color: #2C1F15;">Nossos Artistas</h2>
       </div>
-
       <div class="grid md:grid-cols-3 gap-6">
         <div class="rounded-3xl p-8 text-center card-hover bg-card border-subtle">
           <div class="text-6xl mb-4">🎭</div>
@@ -75,14 +72,12 @@ import Layout from '../layouts/Layout.astro';
           <p class="gradient-text font-semibold mt-2">Ilustradora e Compositora</p>
           <p class="text-sm mt-3" style="color: #4A3728; opacity: 0.6;">Cantora, compositora e artista visual</p>
         </div>
-
         <div class="rounded-3xl p-8 text-center card-hover bg-card border-subtle">
           <div class="text-6xl mb-4">🎨</div>
           <h3 class="text-xl font-bold" style="color: #2C1F15;">Fernanda Pinto</h3>
           <p class="gradient-text font-semibold mt-2">Psicóloga e Designer</p>
           <p class="text-sm mt-3" style="color: #4A3728; opacity: 0.6;">Designer de produtos personalizados</p>
         </div>
-
         <div class="rounded-3xl p-8 text-center card-hover bg-card border-subtle">
           <div class="text-6xl mb-4">🎮</div>
           <h3 class="text-xl font-bold" style="color: #2C1F15;">Braz Pinto Junior</h3>

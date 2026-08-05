@@ -1,58 +1,35 @@
 ---
+// src/pages/portfolio.astro
 import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-import { gradientMap, defaultGradient } from '../lib/gradients';
-
-const projects = await getCollection('portfolio');
 ---
 
-<Layout title="Portfólio - Kaipê Studio" description="Jogos digitais, quadrinhos, audiovisual e projetos culturais criados pelo Coletivo K.P. de Artistas Digitais.">
-  <!-- Hero Section -->
+<Layout 
+  title="Portfólio — Kaipê Studio"
+  description="Conheça os projetos da Kaipê Studio: livros publicados, jogos educativos, espetáculos, mostras de arte digital, oficinas e experiências interativas. Portfólio do Coletivo K.P. de Artistas Digitais."
+>
   <section class="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-24 pb-16 px-6" style="background: linear-gradient(135deg, #FDF6E3 0%, #FAF3E0 100%); border-bottom: 2px solid #2C1F15;">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
-    
     <div class="container mx-auto text-center max-w-4xl relative z-10">
-      <span class="text-xs font-mono font-semibold uppercase tracking-widest" style="color: #C75B39;">Nossos Trabalhos</span>
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black mt-3 tracking-tight" style="color: #2C1F15;">
-        Port<span class="gradient-text">fólio</span>
-      </h1>
-      <p class="text-lg mt-6 max-w-2xl mx-auto" style="color: #4A3728; opacity: 0.8;">
-        Projetos culturais, educacionais e de desenvolvimento de games produzidos pelo Coletivo K.P.
-      </p>
+      <span class="text-xs font-mono font-semibold uppercase tracking-widest" style="color: #5C6B4F;">Realizações</span>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black mt-3 tracking-tight" style="color: #2C1F15;">Nosso <span class="gradient-text">Portfólio</span></h1>
+      <p class="text-lg mt-6 max-w-2xl mx-auto" style="color: #4A3728; opacity: 0.8;">Projetos que unem arte, tecnologia, educação e cultura digital.</p>
     </div>
   </section>
 
-  <!-- Projetos -->
-  <section class="py-16 px-6" style="background: #FAF3E0;">
-    <div class="container mx-auto max-w-6xl">
-      <div class="grid md:grid-cols-2 gap-6">
-        {projects.sort((a, b) => a.data.order - b.data.order).map((project) => (
-          <a 
-            href={`/portfolio/${project.id}`} 
-            class="portfolio-card rounded-3xl overflow-hidden relative block"
-            style={`min-height: ${project.data.featured ? '350px' : '300px'}; background: ${gradientMap[project.data.gradient] || defaultGradient}; border: 2px solid #2C1F15; box-shadow: 6px 6px 0 #2C1F15;`}
-          >
-            <!-- Imagem de Fundo -->
-            {project.data.image && (
-              <img 
-                src={project.data.image} 
-                alt={project.data.title}
-                class="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-              />
-            )}
-            <div class="absolute inset-0 flex flex-col justify-end p-8" style="background: linear-gradient(transparent 40%, rgba(44,31,21,0.9));">
-              <span class="text-xs font-semibold uppercase tracking-wider mb-2" style="color: rgba(253,246,227,0.6);">
-                {project.data.year} • {project.data.category}
-              </span>
-              <h3 class={`${project.data.featured ? 'text-2xl' : 'text-xl'} font-black`} style="color: #FDF6E3;">{project.data.title}</h3>
-              <p class="mt-2 text-sm" style="color: rgba(253,246,227,0.8);">
-                {project.data.description}
-              </p>
-            </div>
-          </a>
-        ))}
+  <!-- Conteúdo do portfólio -->
+  <section class="py-20 px-6" style="background: #FAF3E0;">
+    <div class="container mx-auto max-w-6xl text-center">
+      <div class="rounded-3xl p-12" style="background: #FDF6E3; border: 2px solid #2C1F15; box-shadow: 6px 6px 0 #2C1F15;">
+        <span class="text-6xl block mb-6">🚀</span>
+        <h2 class="text-2xl font-black mb-4" style="color: #2C1F15;">Em breve</h2>
+        <p class="text-lg" style="color: #4A3728; opacity: 0.8;">
+          Nossos projetos estão sendo organizados para você conhecer melhor nosso trabalho.
+        </p>
+        <p class="text-lg mt-4" style="color: #4A3728; opacity: 0.8;">
+          Enquanto isso, conheça nossas <a href="/editora" style="color: #C75B39; text-decoration: underline;">publicações</a> 
+          e <a href="/mostra" style="color: #C75B39; text-decoration: underline;">eventos</a>.
+        </p>
       </div>
     </div>
   </section>

@@ -1,8 +1,12 @@
 ---
+// src/pages/mostra.astro
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Mostra Kaipê - Eventos Culturais" description="Exposições de jogos, oficinas, espetáculos teatrais e eventos culturais do Coletivo K.P. em Dourados, MS.">
+<Layout 
+  title="Mostra Kaipê — Eventos de Arte e Tecnologia"
+  description="Mostra Kaipê: exposições de jogos, oficinas de arte digital, espetáculos teatrais interativos e eventos culturais do Coletivo K.P. em Dourados, MS. Edições anuais desde 2024."
+>
   <section class="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-24 pb-16 px-6" style="background: linear-gradient(135deg, #FDF6E3 0%, #FAF3E0 100%); border-bottom: 2px solid #2C1F15;">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
@@ -14,6 +18,7 @@ import Layout from '../layouts/Layout.astro';
   </section>
   <section class="py-16 px-6" style="background: #FAF3E0;">
     <div class="container mx-auto max-w-5xl">
+      <!-- Próxima Edição -->
       <div class="mb-12">
         <div class="flex items-center gap-3 mb-6">
           <span class="px-4 py-2 rounded-full text-sm font-bold" style="background: rgba(92,107,79,0.2); color: #5C6B4F;">Próxima Edição</span>
@@ -32,6 +37,8 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
       </div>
+
+      <!-- Edição Anterior -->
       <div class="mb-12">
         <div class="flex items-center gap-3 mb-6">
           <span class="px-4 py-2 rounded-full text-sm font-bold" style="background: rgba(199,91,57,0.2); color: #C75B39;">Edição Anterior</span>
@@ -53,6 +60,8 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
       </div>
+
+      <!-- Primeira Edição -->
       <div>
         <div class="flex items-center gap-3 mb-6">
           <span class="px-4 py-2 rounded-full text-sm font-bold" style="background: rgba(212,168,67,0.2); color: #D4A843;">Primeira Edição</span>

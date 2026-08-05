@@ -11,45 +11,68 @@ const otherProjects = projects
   .filter(p => !p.data.featured)
   .sort((a, b) => a.data.order - b.data.order)
   .slice(0, 2);
+
+const displayProjects = [...featuredProjects, ...otherProjects].slice(0, 4);
 ---
 
 <section id="portfolio" class="relative py-24 px-6 overflow-hidden" style="background: #FDF6E3; border-bottom: 2px solid #2C1F15;">
   <div class="container mx-auto">
     <div class="text-center mb-16">
       <span class="text-xs font-mono font-semibold uppercase tracking-widest" style="color: #C75B39;">Portfólio</span>
-      <h2 class="text-4xl md:text-5xl font-display font-black mt-3 tracking-tight" style="color: #2C1F15;">Projetos em Destaque</h2>
+      <h2 class="text-4xl md:text-5xl font-display font-black mt-3 tracking-tight" style="color: #2C1F15;">
+        {displayProjects.length > 0 ? 'Projetos em Destaque' : 'Em Breve'}
+      </h2>
+      {displayProjects.length === 0 && (
+        <p class="text-lg mt-4 max-w-2xl mx-auto" style="color: #4A3728; opacity: 0.8;">
+          Nossos projetos estão sendo organizados. <br>Volte em breve para conhecer nosso trabalho!
+        </p>
+      )}
     </div>
 
-    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-      {[...featuredProjects, ...otherProjects].slice(0, 4).map((project, index) => (
-        <a 
-          href={`/portfolio/${project.id}`}
-          class="portfolio-card overflow-hidden relative block"
-          style={`aspect-ratio: 16/9; background: ${gradientMap[project.data.gradient]};`}
-        >
-          {project.data.image && (
-            <img 
-              src={project.data.image} 
-              alt={project.data.title}
-              class="absolute inset-0 w-full h-full object-cover"
-              loading="lazy"
-            />
-          )}
-          <div class="absolute inset-0 flex flex-col justify-end p-8" style="background: linear-gradient(transparent 40%, rgba(44,31,21,0.9));">
-            <span class="text-xs font-mono font-semibold uppercase tracking-wider mb-2" style="color: #E07B5B;">
-              {project.data.year} • {project.data.category}
-            </span>
-            <h3 class="text-2xl font-display font-black" style="color: #FDF6E3;">{project.data.title}</h3>
-            <p class="mt-2 text-sm" style="color: rgba(253,246,227,0.8);">{project.data.description}</p>
-          </div>
-        </a>
-      ))}
-    </div>
+    {displayProjects.length > 0 ? (
+      <>
+        <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {displayProjects.map((project, index) => (
+            <a 
+              href={`/portfolio/${project.id}`}
+              class="portfolio-card overflow-hidden relative block group"
+              style={`aspect-ratio: 16/9; background: ${gradientMap[project.data.gradient] || '#C75B39'};`}
+            >
+              {project.data.image && (
+                <img 
+                  src={project.data.image} 
+                  alt={project.data.title}
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              )}
+              <div class="absolute inset-0 flex flex-col justify-end p-8 transition-opacity duration-300" style="background: linear-gradient(transparent 40%, rgba(44,31,21,0.9));">
+                <span class="text-xs font-mono font-semibold uppercase tracking-wider mb-2" style="color: #E07B5B;">
+                  {project.data.year || '2026'} • {project.data.category || 'Projeto'}
+                </span>
+                <h3 class="text-2xl font-display font-black" style="color: #FDF6E3;">{project.data.title}</h3>
+                <p class="mt-2 text-sm" style="color: rgba(253,246,227,0.8);">{project.data.description}</p>
+              </div>
+            </a>
+          ))}
+        </div>
 
-    <div class="text-center mt-12">
-      <a href="/portfolio" class="btn-glow inline-block px-8 py-4">
-        Ver Todos os Projetos
-      </a>
-    </div>
+        <div class="text-center mt-12">
+          <a href="/portfolio" class="btn-glow inline-block px-8 py-4">
+            Ver Todos os Projetos
+          </a>
+        </div>
+      </>
+    ) : (
+      <div class="text-center py-12">
+        <div class="text-6xl mb-4">🚀</div>
+        <p class="text-lg" style="color: #4A3728; opacity: 0.6;">
+          Estamos organizando nosso portfólio para você conhecer melhor nosso trabalho.
+        </p>
+        <p class="text-sm mt-2" style="color: #4A3728; opacity: 0.5;">
+          Enquanto isso, conheça nossas <a href="/editora" style="color: #C75B39; text-decoration: underline;">publicações</a> e <a href="/mostra" style="color: #C75B39; text-decoration: underline;">eventos</a>.
+        </p>
+      </div>
+    )}
   </div>
 </section>
